@@ -25,6 +25,41 @@ body {
     background-color: var(--background-color);
 }
 
+/* Loading Animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-animation {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -319,36 +354,49 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
+    padding: 2rem 0;
 }
 
 .project-card {
-    background-color: rgba(0, 15, 25, 0.8);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
-    transition: transform 0.3s ease;
-    border: 1px solid var(--primary-color);
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.project-card.hidden {
+    display: none;
 }
 
 .project-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+}
+
+.project-card p {
+    flex-grow: 1;
+    margin: 0;
 }
 
 .tech-stack {
-    margin: 1rem 0;
+    margin: 0;
     color: var(--secondary-color);
     font-size: 0.9rem;
 }
 
 .project-link {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: auto;
     padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     color: var(--background-color);
@@ -474,4 +522,34 @@ footer {
     .hamburger {
         display: block;
     }
+}
+
+/* Project Filters */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
 } 
