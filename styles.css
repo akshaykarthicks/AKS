@@ -884,6 +884,16 @@ section {
     font-size: 2.5rem;
   }
 
+  /* Fix hero subtitle alignment on mobile */
+  .hero-subtitle {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .subtitle-text {
+    font-size: 1.1rem;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
