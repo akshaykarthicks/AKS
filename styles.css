@@ -962,3 +962,41 @@ section {
     padding: 1.5rem;
   }
 }
+
+/* Main projects horizontal scroll */
+.main-projects-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.main-projects-horizontal .project-card {
+  min-width: 370px;
+  max-width: 420px;
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.others-section {
+  margin-top: 2.5rem;
+}
+
+.others-section .others-header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.others-section .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
