@@ -7,20 +7,20 @@
   --success: #000000;
   --warning: #000000;
 
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #f1f3f4;
+  --bg-primary: #e5e7eb;
+  --bg-secondary: #d1d5db;
+  --bg-tertiary: #c7d2d8;
   --bg-card: #ffffff;
 
   --text-primary: #000000;
   --text-secondary: #666666;
   --text-muted: #999999;
 
-  --border: #e5e7eb;
-  --border-light: #f3f4f6;
+  --border: #e0e0e0;
+  --border-light: #f0f0f0;
 
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 20px rgba(0, 0, 0, 0.1);
 
   --radius: 12px;
@@ -187,7 +187,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(229, 231, 235, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
@@ -531,7 +531,7 @@ section {
 
 /* About Section */
 .about {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .about-grid {
@@ -542,7 +542,7 @@ section {
 
 .skills-card,
 .education-card {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -589,7 +589,7 @@ section {
 .skill-item {
   margin-bottom: 1rem;
   padding: 0.75rem;
-  background: var(--bg-secondary);
+  background: #f8f9ff;
   border-radius: var(--radius);
   border-left: 3px solid var(--primary);
   transition: all 0.3s ease;
@@ -597,7 +597,7 @@ section {
 
 .skill-item:hover {
   transform: translateX(5px);
-  background: var(--bg-tertiary);
+  background: #e8f0ff;
 }
 
 .skill-name {
@@ -665,7 +665,7 @@ section {
 
 .filter-btn {
   padding: 0.75rem 1.5rem;
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text-secondary);
@@ -689,7 +689,7 @@ section {
 }
 
 .project-card {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -746,11 +746,11 @@ section {
 
 .tech-tag {
   padding: 0.25rem 0.75rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  background: #f0f8ff;
+  border: 1px solid #e6f3ff;
   border-radius: 20px;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #0066cc;
   font-weight: 500;
 }
 
@@ -795,7 +795,7 @@ section {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text-primary);
@@ -979,7 +979,7 @@ section {
   flex: 0 0 auto;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border);
   margin-bottom: 0;
 }
