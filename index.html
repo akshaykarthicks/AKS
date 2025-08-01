@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshay Karthick - Portfolio</title>
+    <meta name="description" content="Akshay Karthick - Computer Science student specializing in Django development, AI integration, and innovative web solutions.">
+    <meta name="keywords" content="Django Developer, AI Integration, Web Development, Computer Science, Portfolio">
+    <meta name="author" content="Akshay Karthick S">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Akshay Karthick - Portfolio">
+    <meta property="og:description" content="Computer Science student specializing in Django development and AI integration">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Akshay Karthick - Portfolio">
+    <meta property="twitter:description" content="Computer Science student specializing in Django development and AI integration">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
     <!-- Loading Screen -->
-    <div class="loading-screen">
+    <div class="loading-screen" role="status" aria-label="Loading portfolio">
         <div class="loading-container">
-            <div class="loading-dots">
+            <div class="loading-dots" aria-hidden="true">
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -22,7 +43,7 @@
     </div>
 
     <!-- Background Elements -->
-    <div class="bg-elements">
+    <div class="bg-elements" aria-hidden="true">
         <div class="grid-overlay"></div>
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
@@ -30,512 +51,647 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-bracket">[</span>
-                <span class="logo-text">AK</span>
-                <span class="logo-bracket">]</span>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-bracket" aria-hidden="true">[</span>
+                    <span class="logo-text">AK</span>
+                    <span class="logo-bracket" aria-hidden="true">]</span>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link" data-text="Home" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#about" class="nav-link" data-text="About" role="menuitem">About</a></li>
+                    <li role="none"><a href="#projects" class="nav-link" data-text="Projects" role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" data-text="Contact" role="menuitem">Contact</a></li>
+                </ul>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link" data-text="Home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-text="About">About</a></li>
-                <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
-                <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="profile-section">
-                    <div class="profile-wrapper">
-                        <img src="ak.jpg" alt="Akshay Karthick" class="profile-img">
-                        <div class="profile-border"></div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="profile-section">
+                        <div class="profile-wrapper">
+                            <img src="ak.jpg" alt="Akshay Karthick - Professional headshot" class="profile-img">
+                            <div class="profile-border" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line">Hello, I'm</span>
+                            <span class="title-name">Akshay Karthick S</span>
+                        </h1>
+                        <div class="hero-subtitle">
+                            <span class="subtitle-text">Adaptability Over Mastery</span>
+                            <div class="subtitle-cursor" aria-hidden="true"></div>
+                        </div>
+                        <p class="hero-description">
+                            Highly motivated Computer Science student with experience in front-end web development, 
+                            Python programming, and AI tools. Passionate about building innovative projects and 
+                            learning new technologies.
+                        </p>
+                        
+                        <div class="hero-links">
+                            <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Visit my GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/akshay-karthick-S/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Connect on LinkedIn">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/_.aksy._/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow on Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-line">Hello, I'm</span>
-                        <span class="title-name">Akshay Karthick S</span>
-                    </h1>
-                    <div class="hero-subtitle">
-                        <span class="subtitle-text">Adaptablity Over Mastery</span>
-                        <div class="subtitle-cursor"></div>
-                    </div>
-                    <p class="hero-description">
-                        Highly motivated Computer Science student with experience in front-end web development, 
-                        Python programming, and AI tools. Passionate about building innovative projects and 
-                        learning new technologies.
-                    </p>
+                <div class="scroll-indicator" aria-hidden="true">
+                    <div class="scroll-line"></div>
+                    <span class="scroll-text">Scroll</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-number" aria-hidden="true">01</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </header>
+                
+                <div class="about-grid">
+                    <article class="skills-card">
+                        <header class="card-header">
+                            <h3 class="card-title">Technical Skills</h3>
+                            <div class="card-icon" aria-hidden="true">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </header>
+                        <ul class="skills-list">
+                            <li class="skill-item">
+                                <span class="skill-name">Django Developer</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Context Engineering</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Front-end Development</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Agentic AI</span>
+                            </li>
+                        </ul>
+                    </article>
                     
-                    <div class="hero-links">
-                        <a href="https://github.com/akshaykarthicks" target="_blank" class="social-btn">
-                            <i class="fab fa-github"></i>
+                    <article class="education-card">
+                        <header class="card-header">
+                            <h3 class="card-title">Education</h3>
+                            <div class="card-icon" aria-hidden="true">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </header>
+                        <div class="education-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Bachelor of Engineering</h4>
+                                    <p class="timeline-subtitle">Rajalakshmi Engineering College</p>
+                                    <time class="timeline-date" datetime="2025-05">Expected Graduation: May 2025</time>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot" aria-hidden="true"></div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">HSC</h4>
+                                    <p class="timeline-subtitle">Senthil Public School - Salem</p>
+                                    <time class="timeline-date" datetime="2021-03">March 2021</time>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section - Redesigned -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-number" aria-hidden="true">02</span>
+                    <h2 class="section-title">Featured Work</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </header>
+                
+
+                <!-- Project Categories Navigation -->
+                <nav class="project-nav" role="tablist" aria-label="Project categories">
+                    <button class="project-tab active" role="tab" aria-selected="true" aria-controls="featured-panel" data-category="featured">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <span>Featured</span>
+                    </button>
+                    <button class="project-tab" role="tab" aria-selected="false" aria-controls="django-panel" data-category="django">
+                        <i class="fab fa-python" aria-hidden="true"></i>
+                        <span>Django</span>
+                    </button>
+                    <button class="project-tab" role="tab" aria-selected="false" aria-controls="ai-panel" data-category="ai">
+                        <i class="fas fa-robot" aria-hidden="true"></i>
+                        <span>AI & ML</span>
+                    </button>
+                    <button class="project-tab" role="tab" aria-selected="false" aria-controls="all-panel" data-category="all">
+                        <i class="fas fa-th" aria-hidden="true"></i>
+                        <span>All Projects</span>
+                    </button>
+                </nav>
+
+                <!-- Featured Projects Carousel -->
+                <div id="featured-panel" class="project-panel active" role="tabpanel" aria-labelledby="featured-tab">
+                    <div class="featured-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Featured Project 1: Taskly AI -->
+                                <article class="featured-project" data-category="ai featured">
+                                    <div class="project-visual">
+                                        <img src="images/task.png" alt="Taskly AI - AI-powered task management interface" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">01</div>
+                                            <div class="project-links">
+                                                <a href="https://taskly-ai-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View Taskly AI live demo">
+                                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">AI Application</span>
+                                            <span class="project-year">2025 </span>
+                                        </div>
+                                        <h3 class="project-title">Taskly AI</h3>
+                                        <p class="project-description">
+                                            Intelligent task management system that leverages AI to auto-summarize tasks, suggest subtasks, and enhance productivity through smart organization features.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Django</span>
+                                            <span class="tech-tag">AI Agent</span>
+                                            <span class="tech-tag">Productivity</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Featured Project 2: ForgeNest -->
+                                <article class="featured-project" data-category="django featured">
+                                    <div class="project-visual">
+                                        <img src="images/forgenest.png" alt="ForgeNest - Habit tracking platform interface" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">02</div>
+                                            <div class="project-links">
+                                                <a href="https://forgenest.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View ForgeNest live demo">
+                                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">Web Application</span>
+                                            <span class="project-year">2025</span>
+                                        </div>
+                                        <h3 class="project-title">ForgeNest</h3>
+                                        <p class="project-description">
+                                            Comprehensive habit tracking system designed to help users build consistency, track progress, and achieve their personal and professional goals.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Django</span>
+                                            <span class="tech-tag">Data Visualization</span>
+                                            <span class="tech-tag">Habit Tracking</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Featured Project 3: Jarvis AI -->
+                                <article class="featured-project" data-category="ai featured">
+                                    <div class="project-visual">
+                                        <img src="images/live.png" alt="Jarvis AI - Voice assistant interface" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">03</div>
+                                            <div class="project-links">
+                                                <a href="https://github.com/akshaykarthicks/Jarvis_Agent.git" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View Jarvis AI source code">
+                                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">Voice AI</span>
+                                            <span class="project-year">2025</span>
+                                        </div>
+                                        <h3 class="project-title">Jarvis AI</h3>
+                                        <p class="project-description">
+                                            Iron Man-inspired voice agent powered by LiveKit technology. Features seamless voice interaction, tool integration, and intelligent automation capabilities.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">LiveKit</span>
+                                            <span class="tech-tag">Voice AI</span>
+                                            <span class="tech-tag">Automation</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Featured Project 4: PromptHub -->
+                                <article class="featured-project" data-category="django featured">
+                                    <div class="project-visual">
+                                        <img src="images/prompthub.png" alt="PromptHub - AI prompt community platform" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">04</div>
+                                            <div class="project-links">
+                                                <a href="https://prompthub-2w8c.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View PromptHub live demo">
+                                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">Web Application</span>
+                                            <span class="project-year">2025</span>
+                                        </div>
+                                        <h3 class="project-title">PromptHub</h3>
+                                        <p class="project-description">
+                                            Community-driven platform for discovering, sharing, and collaborating on AI prompts. Built with Django for seamless user experience.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Django</span>
+                                            <span class="tech-tag">Community</span>
+                                            <span class="tech-tag">AI</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Featured Project 5: ReflectSpace -->
+                                <article class="featured-project" data-category="django featured">
+                                    <div class="project-visual">
+                                        <img src="images/reflectspace.png" alt="ReflectSpace - Digital journaling platform" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">05</div>
+                                            <div class="project-links">
+                                                <a href="https://reflectspace.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View ReflectSpace live demo">
+                                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">Web Application</span>
+                                            <span class="project-year">2025</span>
+                                        </div>
+                                        <h3 class="project-title">ReflectSpace</h3>
+                                        <p class="project-description">
+                                            Beautiful digital journaling platform with vertical timeline visualization. Django-powered interface for personal reflection and growth tracking.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Django</span>
+                                            <span class="tech-tag">UX/UI</span>
+                                            <span class="tech-tag">Timeline</span>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- Featured Project 6: Time Capsule -->
+                                <article class="featured-project" data-category="django featured">
+                                    <div class="project-visual">
+                                        <img src="images/image.png" alt="Time Capsule - Memory preservation platform" class="project-image" loading="lazy">
+                                        <div class="project-overlay">
+                                            <div class="project-badge">06</div>
+                                            <div class="project-links">
+                                                <a href="https://time-capsule-xjtz.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" aria-label="View Time Capsule live demo">
+                                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-info">
+                                        <div class="project-meta">
+                                            <span class="project-type">Web Application</span>
+                                            <span class="project-year">2025</span>
+                                        </div>
+                                        <h3 class="project-title">Time Capsule</h3>
+                                        <p class="project-description">
+                                            Innovative web application for preserving memories for future delivery. Django-based platform for creating digital time capsules.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Django</span>
+                                            <span class="tech-tag">Memory</span>
+                                            <span class="tech-tag">Innovation</span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Controls -->
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev" aria-label="Previous project" id="prevBtn">
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <div class="carousel-indicators" id="carouselIndicators"></div>
+                            <button class="carousel-btn next" aria-label="Next project" id="nextBtn">
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Django Projects Grid -->
+                <div id="django-panel" class="project-panel" role="tabpanel" aria-labelledby="django-tab">
+                    <div class="projects-masonry">
+                        <article class="masonry-item" data-category="django">
+                            <div class="project-image-wrapper">
+                                <img src="images/prompthub.png" alt="PromptHub - AI prompt community platform" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">01</div>
+                                    <a href="https://prompthub-2w8c.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View PromptHub">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">PromptHub</h3>
+                                <p class="project-description">Community-driven platform for discovering, sharing, and collaborating on AI prompts.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">Community</span>
+                                    <span class="tech-tag">AI</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="masonry-item" data-category="django">
+                            <div class="project-image-wrapper">
+                                <img src="images/reflectspace.png" alt="ReflectSpace - Digital journaling platform" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">02</div>
+                                    <a href="https://reflectspace.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View ReflectSpace">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">ReflectSpace</h3>
+                                <p class="project-description">Beautiful digital journaling platform with vertical timeline visualization.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">UX/UI</span>
+                                    <span class="tech-tag">Timeline</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="masonry-item" data-category="django">
+                            <div class="project-image-wrapper">
+                                <img src="images/image.png" alt="Time Capsule - Memory preservation platform" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">03</div>
+                                    <a href="https://time-capsule-xjtz.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View Time Capsule">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Time Capsule</h3>
+                                <p class="project-description">Innovative web application for preserving memories for future delivery.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">Memory</span>
+                                    <span class="tech-tag">Innovation</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- AI Projects Grid -->
+                <div id="ai-panel" class="project-panel" role="tabpanel" aria-labelledby="ai-tab">
+                    <div class="projects-masonry">
+                        <article class="masonry-item" data-category="ai">
+                            <div class="project-image-wrapper">
+                                <img src="images/crew.png" alt="Crew AI Agents - Multi-agent system" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">01</div>
+                                    <a href="https://github.com/stars/akshaykarthicks/lists/crewai-agents" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View Crew AI Agents">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Crew AI Agents</h3>
+                                <p class="project-description">Advanced multi-agent system for financial analysis and market research.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">CrewAI</span>
+                                    <span class="tech-tag">Finance</span>
+                                    <span class="tech-tag">Multi-Agent</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="masonry-item" data-category="ai">
+                            <div class="project-image-wrapper">
+                                <img src="images/Ai agent .png" alt="AI Agent Suite - Automation tools" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">02</div>
+                                    <a href="https://github.com/stars/akshaykarthicks/lists/ai-agent" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View AI Agent Suite">
+                                        <i class="fab fa-github" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">AI Agent Suite</h3>
+                                <p class="project-description">Comprehensive AI agent collection for Gmail and LinkedIn automation.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">n8n</span>
+                                    <span class="tech-tag">AI Agent</span>
+                                    <span class="tech-tag">Automation</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="masonry-item" data-category="ai">
+                            <div class="project-image-wrapper">
+                                <img src="images/web.png" alt="Web Sharing - Secure file transfer" class="project-img" loading="lazy">
+                                <div class="project-overlay">
+                                    <div class="project-number">03</div>
+                                    <a href="https://sleek-transfer-web.lovable.app/" target="_blank" rel="noopener noreferrer" class="project-link-overlay" aria-label="View Web Sharing">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Web Sharing</h3>
+                                <p class="project-description">Secure file sharing platform with end-to-end encryption up to 2GB.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Lovable</span>
+                                    <span class="tech-tag">Supabase</span>
+                                    <span class="tech-tag">Security</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- All Projects Grid -->
+                <div id="all-panel" class="project-panel" role="tabpanel" aria-labelledby="all-tab">
+                    <div class="all-projects-grid">
+                        <!-- Quick Project Cards -->
+                        <div class="quick-projects">
+                            <h3 class="quick-title">Quick Projects</h3>
+                            <div class="quick-grid">
+                                <a href="https://myblog-xwlx.onrender.com" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-blog" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>MYBLOG</h4>
+                                        <p>Django blog platform</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://our-ecom.onrender.com/" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>Django ECom</h4>
+                                        <p>E-commerce platform</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://github.com/akshaykarthicks/Weather-App.git" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-cloud-sun" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>Weather App</h4>
+                                        <p>Real-time weather</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://akshaykarthicks.github.io/Music_lyrics_api/" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-music" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>Music Lyrics API</h4>
+                                        <p>Flask + ChatGPT</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://github.com/akshaykarthicks/RESUMEPARSER---NLP.git" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-file-alt" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>Resume Parser</h4>
+                                        <p>NLP with spaCy</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="https://our-social.onrender.com" target="_blank" rel="noopener noreferrer" class="quick-card">
+                                    <div class="quick-icon">
+                                        <i class="fas fa-users" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="quick-info">
+                                        <h4>Social Media</h4>
+                                        <p>Django social app</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-number" aria-hidden="true">03</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </header>
+                
+                <div class="contact-content">
+                    <div class="contact-social">
+                        <a href="mailto:akshaykarthick01@gmail.com" class="social-link" aria-label="Send me an email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit my GitHub profile">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/akshay-karthick-S/" target="_blank" class="social-btn">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/akshay-karthick-S/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Connect on LinkedIn">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://www.instagram.com/_.aksy._/" target="_blank" class="social-btn">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="scroll-indicator">
-                <div class="scroll-line"></div>
-                <span class="scroll-text">Scroll</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="about-grid">
-                <div class="skills-card">
-                    <div class="card-header">
-                        <h3 class="card-title">Technical Skills</h3>
-                        <div class="card-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <ul class="skills-list">
-                        <li class="skill-item">
-                            <span class="skill-name">Django developer </span>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-name">Context Engineering</span>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-name">Front-end Development</span>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-name">Agentic Ai  </span>
-                        </li>
-                
-                    </ul>
-                </div>
-                
-                <div class="education-card">
-                    <div class="card-header">
-                        <h3 class="card-title">Education</h3>
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                    <div class="education-timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">Bachelor of Engineering</h4>
-                                <p class="timeline-subtitle">Rajalakshmi Engineering College</p>
-                                <span class="timeline-date">Expected Graduation: May 2025</span>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">HSC</h4>
-                                <p class="timeline-subtitle">Senthil Public School - Salem</p>
-                                <span class="timeline-date">March 2021</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Projects</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">
-                    <span>All Projects</span>
-                </button>
-                <button class="filter-btn" data-filter="django">
-                    <span>Django</span>
-                </button>
-                <button class="filter-btn" data-filter="ai">
-                    <span>AI</span>
-                </button>
-            </div>
-            
-            <!-- Main Projects Horizontal -->
-            <div class="main-projects-horizontal">
-                <!-- 1. Taskly AI -->
-                <div class="project-card" data-category="ai">
-                    <img src="images/task.png" alt="Taskly AI" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">01</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Taskly AI – Smart Task Manager</h3>
-                        <p class="project-description">AI-powered task manager that auto-summarizes tasks and suggests subtasks to boost productivity and organization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">AI Agent</span>
-                        </div>
-                        <a href="https://taskly-ai-five.vercel.app/" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 2. ForgeNest -->
-                <div class="project-card" data-category="django">
-                    <img src="images/forgenest.png" alt="ForgeNest" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">02</div>
-                    <div class="project-content">
-                        <h3 class="project-title">ForgeNest - Habit Tracker</h3>
-                        <p class="project-description">Track your progress, build consistency, and achieve your goals with our simple habit tracking system.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Habit Tracking</span>
-                            <span class="tech-tag">Data Visualization</span>
-                        </div>
-                        <a href="https://forgenest.vercel.app/" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 3. PromptHub -->
-                <div class="project-card" data-category="django">
-                    <img src="images/prompthub.png" alt="PromptHub" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">03</div>
-                    <div class="project-content">
-                        <h3 class="project-title">PromptHub - Community App</h3>
-                        <p class="project-description">Discover, share, and get inspired by the best AI prompts from our creative community.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Community Platform</span>
-                        </div>
-                        <a href="https://prompthub-2w8c.onrender.com/" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 4. Crew AI Agents -->
-                <div class="project-card" data-category="ai">
-                    <img src="images/crew.png" alt="Crew AI Agents" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">04</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Crew Agents</h3>
-                        <p class="project-description">I completed an AI agents project using CrewAI featuring a Stock Picker and a Financial Researcher Assistant. These agents analyze market data, suggest stocks, and provide financial insights.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">CrewAI</span>
-                            <span class="tech-tag">AI Agents</span>
-                            <span class="tech-tag">Financial Analysis</span>
-                        </div>
-                        <a href="https://github.com/stars/akshaykarthicks/lists/crewai-agents" class="project-link" target="_blank">
-                            <span>GitHub</span>
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 5. AI Agents -->
-                <div class="project-card" data-category="ai">
-                    <img src="images/Ai agent .png" alt="AI Agents" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">05</div>
-                    <div class="project-content">
-                        <h3 class="project-title">AI-Agent Project</h3>
-                        <p class="project-description">Projects including Gmail summarization and a LinkedIn content creator using n8n AI agents.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">n8n</span>
-                            <span class="tech-tag">AI Agent</span>
-                        </div>
-                        <a href="https://github.com/stars/akshaykarthicks/lists/ai-agent" class="project-link" target="_blank">
-                            <span>GitHub</span>
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 6. Jarvis_AI -->
-                <div class="project-card" data-category="ai">
-                    <img src="images/live.png" alt="Jarvis_AI" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">06</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Jarvis_AI - Voice Agent</h3>
-                        <p class="project-description">An Ironman-like voice agent using LiveKit, integrated with common tools for seamless voice interaction and automation.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">LiveKit</span>
-                            <span class="tech-tag">Voice AI</span>
-                            <span class="tech-tag">Automation</span>
-                        </div>
-                        <a href="https://github.com/akshaykarthicks/Jarvis_Agent.git" class="project-link" target="_blank">
-                            <span>GitHub</span>
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 7. ReflectSpace -->
-                <div class="project-card" data-category="django">
-                    <img src="images/reflectspace.png" alt="ReflectSpace" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">07</div>
-                    <div class="project-content">
-                        <h3 class="project-title">ReflectSpace</h3>
-                        <p class="project-description">A reflective journal web app to capture thoughts, emotions, and daily experiences on a beautiful vertical timeline.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Web Development</span>
-                            <span class="tech-tag">UX/UI Design</span>
-                        </div>
-                        <a href="https://reflectspace.onrender.com/" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 8. Web Sharing -->
-                <div class="project-card" data-category="ai">
-                    <img src="images/web.png" alt="Web Sharing" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">08</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Web Sharing</h3>
-                        <p class="project-description">Upload and share files up to 2GB with end-to-end encryption. Simple, secure, and fast.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Lovable</span>
-                            <span class="tech-tag">Supabase</span>
-                        </div>
-                        <a href="https://sleek-transfer-web.lovable.app/" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- 9. Time Capsule -->
-                <div class="project-card" data-category="django">
-                    <img src="images/image.png" alt="Time Capsule" class="project-img" style="width:100%;max-width:420px;height:180px;object-fit:cover;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                    <div class="project-number">09</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Time Capsule</h3>
-                        <p class="project-description">A web app that allows you to upload your memories and deliver them to the future.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Web Development</span>
-                        </div>
-                        <a href="https://time-capsule-xjtz.onrender.com" class="project-link" target="_blank">
-                            <span>Demo</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Others Section -->
-            <div class="scroll-left-indicator">
-                <span class="scroll-arrow">&#8592;</span>
-            </div>
-            <div class="others-section">
-                <div class="others-header">Others</div>
-                <div class="projects-grid">
-                    <!-- MYBLOG -->
-                    <div class="project-card" data-category="django">
-                        <div class="project-number">01</div>
-                        <div class="project-content">
-                            <h3 class="project-title">MYBLOG - Django Blog Project</h3>
-                            <p class="project-description">A blog app with user authentication, post creation, and responsive design.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Blog</span>
-                            </div>
-                            <a href="https://myblog-xwlx.onrender.com" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Django ECom -->
-                    <div class="project-card" data-category="django">
-                        <div class="project-number">02</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Django ECom</h3>
-                            <p class="project-description">An e-commerce platform with cart functionality, product listing, and user authentication.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">E-Commerce</span>
-                            </div>
-                            <a href="https://our-ecom.onrender.com/" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Weather App -->
-                    <div class="project-card" data-category="django">
-                        <div class="project-number">03</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Weather App</h3>
-                            <p class="project-description">Check real-time weather conditions for any city with a clean UI.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Weather API</span>
-                            </div>
-                            <a href="https://github.com/akshaykarthicks/Weather-App.git" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Music Lyrics API -->
-                    <div class="project-card" data-category="ai">
-                        <div class="project-number">04</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Music Lyrics API</h3>
-                            <p class="project-description">Built a Music lyrics app using api and html css </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">ChatGPT</span>
-                            </div>
-                            <a href="https://akshaykarthicks.github.io/Music_lyrics_api/" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Resume Parser NLP -->
-                    <div class="project-card" data-category="ai">
-                        <div class="project-number">05</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Resume Parser NLP</h3>
-                            <p class="project-description">Extract key data from resumes using spaCy-based Natural Language Processing.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">NLP</span>
-                                <span class="tech-tag">spaCy</span>
-                            </div>
-                            <a href="https://github.com/akshaykarthicks/RESUMEPARSER---NLP.git" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- AI Chatbot -->
-                    <div class="project-card" data-category="ai">
-                        <div class="project-number">06</div>
-                        <div class="project-content">
-                            <h3 class="project-title">AI Chatbot</h3>
-                            <p class="project-description">A conversational chatbot powered by Gemini API for natural Q&A.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Gemini 1.5 API</span>
-                            </div>
-                            <a href="https://github.com/akshaykarthicks/AI_chat_bot.git" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Social Media -->
-                    <div class="project-card" data-category="django">
-                        <div class="project-number">07</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Social Media</h3>
-                            <p class="project-description">A basic social media app with Django backend and user-friendly UI.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Social Media</span>
-                            </div>
-                            <a href="https://our-social.onrender.com" class="project-link" target="_blank">
-                                <span>View Project</span>
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-social">
-                    <a href="mailto:akshaykarthick01@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/akshaykarthicks" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/akshay-karthick-S/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Floating Chat Bubble -->
-    <div class="chat-bubble" id="chatBubble">
+    <div class="chat-bubble" id="chatBubble" role="button" tabindex="0" aria-label="Open AI assistant chat">
         <div class="bubble-icon">
-            <i class="fas fa-robot"></i>
+            <i class="fas fa-robot" aria-hidden="true"></i>
         </div>
-        <div class="bubble-notification" id="bubbleNotification">
+        <div class="bubble-notification" id="bubbleNotification" aria-hidden="true">
             <span>1</span>
         </div>
     </div>
 
     <!-- Chat Modal -->
-    <div class="chat-modal" id="chatModal">
+    <div class="chat-modal" id="chatModal" role="dialog" aria-labelledby="chat-title" aria-hidden="true">
         <div class="chat-modal-content">
-            <div class="chat-modal-header">
+            <header class="chat-modal-header">
                 <div class="chat-header-info">
-                    <div class="chat-avatar">
+                    <div class="chat-avatar" aria-hidden="true">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="chat-header-text">
-                        <h4>AI Assistant</h4>
+                        <h4 id="chat-title">AI Assistant</h4>
                         <span class="status">
-                            <span class="status-dot"></span>
+                            <span class="status-dot" aria-hidden="true"></span>
                             Online
                         </span>
                     </div>
                 </div>
-                <button class="chat-close" onclick="toggleChat()">
-                    <i class="fas fa-times"></i>
+                <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
-            </div>
+            </header>
             <div class="chat-modal-body">
-                <iframe 
-                    src="https://aks1432-personal-ai-agent.hf.space" 
-                    frameborder="0" 
-                    width="100%" 
+                <iframe
+                    src="https://aks1432-personal-ai-agent.hf.space"
+                    frameborder="0"
+                    width="100%"
                     height="100%"
                     style="border: none; border-radius: 0;"
                     allow="microphone; camera"
@@ -545,9 +701,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    
 
     <!-- Scripts -->
     <script>
@@ -565,12 +718,15 @@
         const navLinks = document.querySelectorAll('.nav-link');
 
         menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
             });
@@ -590,28 +746,90 @@
             });
         });
 
-        // Project Filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+        // Project Tabs
+        const projectTabs = document.querySelectorAll('.project-tab');
+        const projectPanels = document.querySelectorAll('.project-panel');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const filter = button.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                
+                // Update tabs
+                projectTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
                 });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                
+                // Update panels
+                projectPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+                document.getElementById(`${category}-panel`).classList.add('active');
             });
+        });
+
+        // Featured Projects Carousel
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.featured-project');
+        const totalSlides = slides.length;
+
+        // Create indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('button');
+            indicator.classList.add('indicator');
+            indicator.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        }
+
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            const translateX = -currentSlide * 100;
+            carouselTrack.style.transform = `translateX(${translateX}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-play carousel
+        let autoplayInterval = setInterval(nextSlide, 5000);
+
+        // Pause autoplay on hover
+        const carousel = document.querySelector('.featured-carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 5000);
         });
 
         // Intersection Observer for animations
@@ -629,12 +847,14 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.skills-card, .education-card, .project-card, .section-header').forEach(el => {
+        document.querySelectorAll('.skills-card, .education-card, .masonry-item, .section-header, .quick-card').forEach(el => {
             observer.observe(el);
         });
 
         // Parallax effect for gradient orbs
-        window.addEventListener('scroll', () => {
+        let ticking = false;
+        
+        function updateParallax() {
             const scrolled = window.pageYOffset;
             const orbs = document.querySelectorAll('.gradient-orb');
             
@@ -642,26 +862,45 @@
                 const speed = 0.1 + (index * 0.05);
                 orb.style.transform = `translateY(${scrolled * speed}px)`;
             });
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
         });
 
-        // Modern Chat Bubble Functionality
+        // Chat Bubble Functionality
         const chatBubble = document.getElementById('chatBubble');
         const chatModal = document.getElementById('chatModal');
         const bubbleNotification = document.getElementById('bubbleNotification');
 
         function toggleChat() {
+            const isActive = chatModal.classList.contains('active');
             chatModal.classList.toggle('active');
-            if (chatModal.classList.contains('active')) {
+            chatModal.setAttribute('aria-hidden', isActive);
+            
+            if (!isActive) {
                 bubbleNotification.style.display = 'none';
                 document.body.style.overflow = 'hidden';
+                chatModal.focus();
             } else {
                 document.body.style.overflow = '';
             }
         }
 
         chatBubble.addEventListener('click', toggleChat);
+        chatBubble.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleChat();
+            }
+        });
 
-        // Close on Escape key
+        // Close chat on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && chatModal.classList.contains('active')) {
                 toggleChat();
@@ -672,6 +911,23 @@
         setTimeout(() => {
             chatBubble.classList.add('show');
         }, 3000);
+
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            if (document.querySelector('#featured-panel').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            }
+        });
+
+        // Reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            clearInterval(autoplayInterval);
+            document.documentElement.style.setProperty('--animation-duration', '0s');
+        }
     </script>
 </body>
 </html>
