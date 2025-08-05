@@ -857,6 +857,33 @@
             clearInterval(autoplayInterval);
             document.documentElement.style.setProperty('--animation-duration', '0s');
         }
+
+        // Active Nav Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksObserver = document.querySelectorAll('.nav-menu a.nav-link');
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
+
+                if (entry.isIntersecting) {
+                    navLinksObserver.forEach(link => link.classList.remove('active'));
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(observerCallback, {
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
     </script>
 </body>
 </html>
