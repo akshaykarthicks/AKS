@@ -351,6 +351,15 @@ body {
   outline-offset: 2px;
 }
 
+.footer-bottom {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
 /* Mobile Menu */
 .menu-toggle {
   display: none;
@@ -1517,7 +1526,8 @@ section {
     display: none;
   }
 
-  .nav-link:hover {
+  .nav-link:hover,
+  .nav-link.active {
     color: var(--primary);
     background: var(--bg-secondary);
     border-radius: var(--radius);

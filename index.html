@@ -557,8 +557,8 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <!-- Footer -->
+        <footer id="contact" class="contact">
             <div class="container">
                 <header class="section-header">
                     <span class="section-number" aria-hidden="true">03</span>
@@ -582,8 +582,11 @@
                         </a>
                     </div>
                 </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Akshay Karthick. All rights reserved.</p>
+                </div>
             </div>
-        </section>
+        </footer>
     </main>
 
     <!-- Floating Chat Bubble -->
@@ -780,24 +783,34 @@
             observer.observe(el);
         });
 
-        // Parallax effect for gradient orbs
+        // Parallax effect for gradient orbs and scroll-based logic
         let ticking = false;
         
-        function updateParallax() {
+        function onScroll() {
             const scrolled = window.pageYOffset;
             const orbs = document.querySelectorAll('.gradient-orb');
             
+            // Parallax
             orbs.forEach((orb, index) => {
                 const speed = 0.1 + (index * 0.05);
                 orb.style.transform = `translateY(${scrolled * speed}px)`;
             });
+
+            // Bottom of page check for contact link. A small buffer is useful.
+            if ((window.innerHeight + scrolled) >= document.body.offsetHeight - 5) {
+                const contactLink = document.querySelector('.nav-menu a[href="#contact"]');
+                if (contactLink && !contactLink.classList.contains('active')) {
+                    document.querySelectorAll('.nav-menu a.nav-link').forEach(link => link.classList.remove('active'));
+                    contactLink.classList.add('active');
+                }
+            }
             
             ticking = false;
         }
 
         window.addEventListener('scroll', () => {
             if (!ticking) {
-                requestAnimationFrame(updateParallax);
+                requestAnimationFrame(onScroll);
                 ticking = true;
             }
         });
@@ -859,10 +872,15 @@
         }
 
         // Active Nav Link Highlighting on Scroll
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], footer[id]');
         const navLinksObserver = document.querySelectorAll('.nav-menu a.nav-link');
 
         const observerCallback = (entries) => {
+            // If at the bottom, the scroll handler takes precedence for the contact link.
+            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 5) {
+                return;
+            }
+
             entries.forEach(entry => {
                 const id = entry.target.getAttribute('id');
                 const navLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
