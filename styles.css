@@ -330,8 +330,14 @@ body {
   transform: translateY(0);
 }
 
+.nav-link.active,
 .nav-link:hover {
   color: transparent;
+}
+
+.nav-link.active::before,
+.nav-link:hover::before {
+  transform: translateY(0);
 }
 
 .nav-link:focus {
