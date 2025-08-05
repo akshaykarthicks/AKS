@@ -1657,6 +1657,10 @@ section {
     justify-content: center;
   }
 
+  .hero-subtitle {
+    justify-content: center;
+  }
+
   .scroll-indicator {
     position: relative;
     justify-content: center;
