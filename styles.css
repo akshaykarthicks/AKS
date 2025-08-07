@@ -1207,6 +1207,10 @@ section {
   transform: scale(1.05);
 }
 
+.masonry-item:hover .project-overlay {
+  opacity: 1;
+}
+
 .project-number {
   background: var(--accent);
   color: var(--text-primary);
