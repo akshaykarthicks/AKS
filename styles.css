@@ -154,6 +154,8 @@ body {
   filter: blur(80px);
   opacity: 0.2;
   animation: float 20s infinite ease-in-out;
+  /* Parallax offset from JS; uses individual transform property to compose with float */
+  translate: 0 var(--parallax-translate, 0px);
   will-change: transform;
 }
 
