@@ -958,7 +958,7 @@ section {
 
 .about {
   background: var(--bg-primary);
-  padding: var(--space-4xl) 0;
+  padding: var(--space-3xl) 0;
 }
 
 /* Tech Stack Container */
@@ -1060,7 +1060,7 @@ section {
 /* About Me Description */
 .about-description {
   background: transparent;
-  padding: var(--space-lg) var(--space-3xl) var(--space-lg);
+  padding: var(--space-xl) var(--space-2xl) var(--space-md);
   margin-bottom: 0;
   max-width: 1000px;
   margin-left: auto;
@@ -2836,7 +2836,7 @@ section {
   }
 
   .about-description {
-    padding: var(--space-xl);
+    padding: var(--space-lg) var(--space-lg) var(--space-sm);
     margin-bottom: var(--space-2xl);
   }
 
