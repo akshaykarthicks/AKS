@@ -745,16 +745,17 @@ main {
 .cta-primary {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  background: #ffffff;
-  color: #000000;
-  padding: var(--space-md) var(--space-xl);
+  gap: var(--space-xs);
+  background: transparent;
+  color: var(--text-primary);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--border);
   border-radius: var(--radius-full);
   text-decoration: none;
   font-weight: 600;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   transition: all var(--animation-duration) var(--animation-timing);
-  box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -775,7 +776,8 @@ main {
 }
 
 .cta-primary:hover {
-  background: #f8f9fa;
+  background: #ffffff;
+  color: #000000;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px 0 rgba(255, 255, 255, 0.3);
 }
@@ -2042,16 +2044,17 @@ section {
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-md);
-  background: var(--accent);
+  gap: var(--space-xs);
+  background: transparent;
   color: var(--text-primary);
-  padding: var(--space-lg) var(--space-2xl);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--border);
   border-radius: var(--radius-full);
   text-decoration: none;
   font-weight: 600;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-sm);
   transition: all var(--animation-duration) var(--animation-timing);
-  box-shadow: var(--shadow);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -2072,7 +2075,8 @@ section {
 }
 
 .cta-button:hover {
-  background: var(--accent-dark);
+  background: #ffffff;
+  color: #000000;
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
 }
