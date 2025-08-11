@@ -1200,7 +1200,16 @@
             });
         }
 
-        window.addEventListener('scroll', updateActiveNavLink);
+        let navTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!navTicking) {
+                requestAnimationFrame(() => {
+                    updateActiveNavLink();
+                    navTicking = false;
+                });
+                navTicking = true;
+            }
+        }, { passive: true });
 
         // Project Tabs
         const projectTabs = document.querySelectorAll('.project-tab');
@@ -1236,6 +1245,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -1254,7 +1264,7 @@
 
             orbs.forEach((orb, index) => {
                 const speed = 0.1 + (index * 0.05);
-                orb.style.transform = `translateY(${scrolled * speed}px)`;
+                orb.style.setProperty('--parallax-translate', `${scrolled * speed}px`);
             });
 
             ticking = false;
@@ -1265,7 +1275,7 @@
                 requestAnimationFrame(updateParallax);
                 ticking = true;
             }
-        });
+        }, { passive: true });
 
         // Chat Bubble Functionality
         const chatBubble = document.getElementById('chatBubble');
