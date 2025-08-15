@@ -2154,7 +2154,7 @@ section {
 }
 
 .contact-text {
-  font-size: var(--font-size-2xl);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: var(--space-xl);
   background: linear-gradient(135deg, #10c509, #c084fc);
