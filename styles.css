@@ -2156,8 +2156,11 @@ section {
 .contact-text {
   font-size: var(--font-size-2xl);
   font-weight: 700;
-  color: var(--text-primary);
   margin-bottom: var(--space-xl);
+  background: linear-gradient(135deg, #10c509, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .contact-social {
