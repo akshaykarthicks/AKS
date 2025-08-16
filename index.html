@@ -1407,7 +1407,13 @@
                         const blogCard = document.createElement('article');
                         blogCard.className = 'blog-card';
 
-                        const imageUrl = post.thumbnail;
+                        let imageUrl = post.thumbnail;
+                        if (!imageUrl) {
+                            const match = post.description.match(/<img[^>]+src="([^">]+)"/);
+                            if (match) {
+                                imageUrl = match[1];
+                            }
+                        }
                         const readTime = Math.ceil(post.content.split(' ').length / 200);
 
                         blogCard.innerHTML = `
