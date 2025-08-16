@@ -64,27 +64,33 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const postUrl = urlParams.get('post');
+            const postGuid = urlParams.get('guid');
 
-            if (postUrl) {
-                const rssToJsonApi = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(postUrl)}`;
+            if (postGuid) {
+                const mediumUsername = '@ak-sy';
+                const mediumRssFeed = `https://medium.com/feed/${mediumUsername}`;
+                const rssToJsonApi = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(mediumRssFeed)}`;
 
                 fetch(rssToJsonApi)
                     .then(response => response.json())
                     .then(data => {
-                        if (data.status === 'ok' && data.items.length > 0) {
-                            const post = data.items[0];
-                            document.getElementById('post-title').innerText = post.title;
-                            document.getElementById('post-author').innerText = `By ${post.author}`;
-                            document.getElementById('post-pub-date').innerText = new Date(post.pubDate).toLocaleDateString();
-                            document.getElementById('post-content').innerHTML = post.content;
+                        if (data.status === 'ok') {
+                            const post = data.items.find(item => item.guid === postGuid);
+                            if (post) {
+                                document.getElementById('post-title').innerText = post.title;
+                                document.getElementById('post-author').innerText = `By ${post.author}`;
+                                document.getElementById('post-pub-date').innerText = new Date(post.pubDate).toLocaleDateString();
+                                document.getElementById('post-content').innerHTML = post.content;
+                            } else {
+                                document.getElementById('post-content').innerHTML = '<p>Could not find the blog post.</p>';
+                            }
                         } else {
-                            document.getElementById('post-content').innerHTML = '<p>Could not load the blog post. Please try again later.</p>';
+                            document.getElementById('post-content').innerHTML = '<p>Could not load the blog feed. Please try again later.</p>';
                         }
                     })
                     .catch(error => {
-                        console.error('Error fetching post:', error);
-                        document.getElementById('post-content').innerHTML = '<p>Could not load the blog post. Please try again later.</p>';
+                        console.error('Error fetching feed:', error);
+                        document.getElementById('post-content').innerHTML = '<p>Could not load the blog feed. Please try again later.</p>';
                     });
             }
         });

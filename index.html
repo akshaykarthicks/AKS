@@ -971,8 +971,7 @@
                         </div>
                         <div class="blog-content">
                             <h3 class="blog-title">
-                                <a href="https://medium.com/@ak-sy/codecraftai-django-crewai-d432e75af128" target="_blank"
-                                    rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+                                <a href="blog.html?guid=https://medium.com/p/d432e75af128" style="text-decoration:none; color:inherit;">
                                     CodeCraftAI:Django + CrewAi
                                 </a>
                             </h3>
@@ -1386,71 +1385,6 @@
             cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
             cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
         });
-
-        // Fetch and display Medium posts
-        const mediumUsername = '@ak-sy';
-        const mediumRssFeed = `https://medium.com/feed/${mediumUsername}`;
-
-        // Since Medium's RSS feed has CORS issues, we use a third-party proxy
-        const rssToJsonApi = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(mediumRssFeed)}`;
-
-        fetch(rssToJsonApi)
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'ok') {
-                    const blogGrid = document.querySelector('.blog-grid');
-                    // Clear existing blog posts
-                    blogGrid.innerHTML = '';
-
-                    const posts = data.items;
-                    posts.forEach(post => {
-                        const blogCard = document.createElement('article');
-                        blogCard.className = 'blog-card';
-
-                        let imageUrl = post.thumbnail;
-                        if (!imageUrl) {
-                            const match = post.description.match(/<img[^>]+src="([^">]+)"/);
-                            if (match) {
-                                imageUrl = match[1];
-                            }
-                        }
-                        const readTime = Math.ceil(post.content.split(' ').length / 200);
-
-                        blogCard.innerHTML = `
-                            <div class="blog-image">
-                                <img src="${imageUrl}"
-                                    alt="${post.title}" class="blog-thumbnail" loading="lazy"
-                                    data-medium-url="${post.link}">
-                            </div>
-                            <div class="blog-content">
-                                <h3 class="blog-title">
-                                    <a href="blog.html?post=${encodeURIComponent(post.link)}" style="text-decoration:none; color:inherit;">
-                                        ${post.title}
-                                    </a>
-                                </h3>
-                                <p class="blog-excerpt">
-                                    ${new DOMParser().parseFromString(post.content, 'text/html').body.innerText.slice(0, 150)}...
-                                </p>
-                                <div class="blog-tags">
-                                    ${post.categories.map(cat => `<span class="blog-tag">${cat}</span>`).join('')}
-                                </div>
-                            </div>
-                            <div class="blog-meta">
-                                <span class="read-time">
-                                    <i class="fas fa-clock"></i>
-                                    ${readTime} min read
-                                </span>
-                            </div>
-                        `;
-                        blogGrid.appendChild(blogCard);
-                    });
-                } else {
-                    console.error('Failed to fetch Medium posts:', data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching Medium posts:', error);
-            });
     </script>
 </body>
 
