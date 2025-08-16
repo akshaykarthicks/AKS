@@ -3608,6 +3608,15 @@ ured Showcase Styles */
 }
 
 /* Blog Post Content Styles */
+.blog-post {
+    padding: var(--space-4xl) 0;
+}
+
+.blog-post .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .blog-post .post-content {
     line-height: 1.8;
     font-size: var(--font-size-lg);
