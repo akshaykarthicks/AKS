@@ -389,6 +389,12 @@ main {
   transform: translateX(-50%) translateY(-2px);
 }
 
+.navbar-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%);
+  pointer-events: none;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
