@@ -1250,9 +1250,22 @@
                     link.classList.add('active');
                 }
             });
+
+            const navbar = document.querySelector('.navbar');
+            if (window.innerWidth > 768) {
+                if (current === 'home') {
+                    navbar.classList.add('navbar-hidden');
+                } else {
+                    navbar.classList.remove('navbar-hidden');
+                }
+            } else {
+                navbar.classList.remove('navbar-hidden');
+            }
         }
 
         window.addEventListener('scroll', updateActiveNavLink);
+        window.addEventListener('resize', updateActiveNavLink);
+        document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 
         // Project Tabs
         const projectTabs = document.querySelectorAll('.project-tab');
