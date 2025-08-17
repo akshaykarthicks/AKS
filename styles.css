@@ -4544,3 +4544,9 @@ ured Showcase Styles */
     transform: translate(-50%, -50%) scale(1.5);
     background-color: rgba(59, 130, 246, 0.2);
 }
+.tech-icon.crewai svg {
+    width: 25px;
+    height: 25px;
+    color: #2ecc71; /* CrewAI green (adjust as you like) */
+}
+
