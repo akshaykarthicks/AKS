@@ -102,60 +102,132 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-grid-layout">
-                <!-- Left Side Cards -->
-                <div class="grid-card left-card-1 tech-stack-card">
-                    <div class="tech-stack-content">
-                        <h4 class="tech-stack-title">Tech Stack</h4>
-                        <div class="scroller" data-direction="right" data-speed="slow">
-                            <div class="tech-icons-grid">
-                                <!-- Original Icons -->
-                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
-                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
-                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
-                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-icon crewai">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
-                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
-                                    </svg>
-                                    <span>CrewAI</span>
+                <!-- Container 1: Center-Large (spans 2x6, starts at col 2, row 2) -->
+                <div class="grid-container div1">
+                    <div class="container-content">
+                        <img src="ak.jpg" alt="Akshay Karthick" class="grid-image">
+                    </div>
+                </div>
+
+                <!-- Container 2: Right-Tall (spans 1x7, starts at col 4, row 1) -->
+                <div class="grid-container div2">
+                    <div class="container-content">
+                        <h1 class="hero-title">
+                            <span class="title-line">Hello, I'm</span>
+                            <span class="title-name">Akshay Karthick S</span>
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Container 3: Bottom-Middle-Wide (spans 2x1, starts at col 2, row 8) -->
+                <div class="grid-container div3">
+                    <div class="container-content">
+                        <div class="india-content">
+                            <h3><i class="fas fa-map-marker-alt india-icon"></i> India</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container 4: Bottom-Right-Small (1x1, starts at col 4, row 8) -->
+                <div class="grid-container div4">
+                    <div class="container-content">
+                        <div class="single-action">
+                            <a href="#contact" class="cta-touch-button">
+                                <span>GET IN TOUCH</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container 5: Bottom-Left-Small (1x1, starts at col 1, row 8) -->
+                <div class="grid-container div5">
+                    <div class="container-content">
+                        <div class="single-action">
+                            <a href="#projects" class="cta-work-button">
+                                <span>MY WORK</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container 6: Left-Tall (spans 1x6, starts at col 1, row 2) -->
+                <div class="grid-container div6">
+                    <div class="container-content">
+                        <div class="github-status">
+                            <div class="status-content">
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
                                 </div>
-                                <!-- Duplicated Icons -->
-                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
-                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
-                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-icon js"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
-                                <div class="tech-icon node"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-icon git"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                                <div class="tech-icon crewai">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
-                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
-                                    </svg>
-                                    <span>CrewAI</span>
+                                <div class="status-text">
+                                    <h4>GitHub Stats</h4>
+                                    <div class="github-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-number" id="repo-count">-</span>
+                                            <span class="stat-label">Repositories</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number" id="star-count">-</span>
+                                            <span class="stat-label">Stars</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number" id="commit-count">-</span>
+                                            <span class="stat-label">Commits</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Container 7: Top-Middle-Left-Small (1x1, starts at col 2, row 1) -->
+                <div class="grid-container div7">
+                    <div class="container-content">
+                    <div class="tech-stack-content">
+                        <div class="scroller" data-direction="right" data-speed="slow">
+                            <div class="tech-icons-grid">
+                                    <!-- Tech Icons -->
+                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
+                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
+                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
+                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
+                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
+                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
+                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                                <div class="tech-icon crewai">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
+                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
+                                    </svg>
+                                    <span>CrewAI</span>
+                                </div>
+                                    <!-- Duplicate icons for seamless scrolling -->
+                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
+                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
+                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
+                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
+                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
+                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
+                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                                <div class="tech-icon crewai">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
+                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
+                                    </svg>
+                                    <span>CrewAI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-
-
-                
-
-                    <!-- Center - Main Profile Image -->
-                    <div class="grid-card center-profile">
-                        <div class="social-circles">
+                <!-- Container 8: Top-Middle-Right-Small (1x1, starts at col 3, row 1) -->
+                <div class="grid-container div8">
+                    <div class="container-content">
+                        <div class="social-circles hero-social-circles">
                             <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="social-circle github">
                                 <i class="fab fa-github"></i>
                             </a>
@@ -166,46 +238,8 @@
                                 <i class="fab fa-medium"></i>
                             </a>
                         </div>
-                        <img src="ak.jpg" alt="Akshay Karthick" class="grid-image">
-                        <div class="profile-overlay">
-                            <div class="profile-motto">
-                                <h2>Adaptability Over Mastery</h2>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Right Side - Text Content -->
-                    <div class="grid-card right-text-card">
-                        <div class="hero-text-content">
-                            <h1 class="hero-title">
-                                <span class="title-line">Hello, I'm</span>
-                                <span class="title-name">Akshay Karthick S</span>
-                            </h1>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Left - My Work Button -->
-                    <div class="grid-card bottom-left-button">
-                        <div class="single-action">
-                            <a href="#projects" class="cta-work-button">
-                                <span>MY WORK</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Right - Get In Touch Button -->
-                    <div class="grid-card bottom-right-button">
-                        <div class="single-action">
-                            <a href="#contact" class="cta-touch-button">
-                                <span>GET IN TOUCH</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="scroll-indicator" aria-hidden="true">
-                    <div class="scroll-line"></div>
-                    <span class="scroll-text">Scroll</span>
                 </div>
             </div>
         </section>
@@ -1432,19 +1466,46 @@
                     console.error('Error fetching Medium posts:', error);
                 });
 
-            // Scroller animation
-            const scrollers = document.querySelectorAll(".scroller");
-
-            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                addAnimation();
-            }
-
-            function addAnimation() {
-                scrollers.forEach((scroller) => {
-                    scroller.setAttribute("data-animated", true);
-                });
-            }
+            // Fetch GitHub stats
+            fetchGitHubStats();
         });
+
+        // GitHub Stats Function
+        async function fetchGitHubStats() {
+            const username = 'akshaykarthicks';
+            
+            try {
+                // Fetch user data
+                const userResponse = await fetch(`https://api.github.com/users/${username}`);
+                const userData = await userResponse.json();
+                
+                if (userResponse.ok) {
+                    // Update repository count
+                    document.getElementById('repo-count').textContent = userData.public_repos || 0;
+                    
+                    // Fetch starred repositories count
+                    const starredResponse = await fetch(`https://api.github.com/users/${username}/starred`);
+                    const starredData = await starredResponse.json();
+                    document.getElementById('star-count').textContent = starredData.length || 0;
+                    
+                    // For commit count, we'll use a placeholder since GitHub API doesn't provide total commits easily
+                    // You can replace this with actual data if you have access to GitHub GraphQL API
+                    document.getElementById('commit-count').textContent = '100+';
+                } else {
+                    console.error('Failed to fetch GitHub data:', userData.message);
+                    // Set fallback values
+                    document.getElementById('repo-count').textContent = '15+';
+                    document.getElementById('star-count').textContent = '20+';
+                    document.getElementById('commit-count').textContent = '700+';
+                }
+            } catch (error) {
+                console.error('Error fetching GitHub stats:', error);
+                // Set fallback values on error
+                document.getElementById('repo-count').textContent = '15+';
+                document.getElementById('star-count').textContent = '20+';
+                document.getElementById('commit-count').textContent = '700+';
+            }
+        }
     </script>
 
     <!-- Footer -->
