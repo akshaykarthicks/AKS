@@ -614,11 +614,33 @@ main {
   letter-spacing: 1px;
 }
 
+.scroller {
+  max-width: 600px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+}
+
+.scroller[data-animated="true"] .tech-icons-grid {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll 40s linear infinite;
+}
+
 .tech-icons-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
+  display: flex;
+  gap: var(--space-lg);
   width: 100%;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
 }
 
 .tech-icon {
@@ -660,6 +682,9 @@ main {
 .tech-icon.css i { color: #1572b6; }
 .tech-icon.github i { color: #333; }
 .tech-icon.reddit i { color: #ff4500; }
+.tech-icon.react i { color: #61dafb; }
+.tech-icon.docker i { color: #2496ed; }
+.tech-icon.postgresql i { color: #336791; }
 
 /* Tech Icon Animations */
 .tech-icon.django:hover i { 
@@ -685,6 +710,18 @@ main {
 .tech-icon.reddit:hover i { 
   color: #ff6314; 
   transform: rotate(-10deg) scale(1.1);
+}
+.tech-icon.react:hover i {
+  color: #61dafb;
+  transform: rotate(-10deg) scale(1.1);
+}
+.tech-icon.docker:hover i {
+  color: #2496ed;
+  transform: rotate(-10deg) scale(1.1);
+}
+.tech-icon.postgresql:hover i {
+  color: #336791;
+  transform: rotate(10deg) scale(1.1);
 }
 
 /* Center Profile - Main Image */
