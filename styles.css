@@ -5024,6 +5024,10 @@ section {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    #ai-panel .ai-showcase-content {
+        grid-template-columns: 1fr;
+    }
     
     .ai-showcase-right {
         order: -1;
