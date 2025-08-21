@@ -553,6 +553,23 @@ main {
     gap: var(--space-lg);
 }
 
+.hero-social-links {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.hero-social-links a {
+    color: var(--text-secondary);
+    font-size: var(--font-size-2xl);
+    transition: all var(--animation-duration) var(--animation-timing);
+}
+
+.hero-social-links a:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
 .hero-button {
     text-decoration: none;
     padding: var(--space-md) var(--space-xl);
