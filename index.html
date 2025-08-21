@@ -101,148 +101,21 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
-            <div class="hero-grid-layout">
-                <!-- Container 1: Center-Large (spans 2x6, starts at col 2, row 2) -->
-                <div class="grid-container div1">
-                    <div class="container-content">
-                        <img src="ak.jpg" alt="Akshay Karthick" class="grid-image">
+            <div class="hero-content-new">
+                <div class="hero-text">
+                    <p class="hero-intro">Hello I'm</p>
+                    <h1 class="hero-name">Akshay Karthick S</h1>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="hero-button primary">Get in Touch</a>
+                        <a href="#projects" class="hero-button secondary">My Work</a>
                     </div>
                 </div>
-
-                <!-- Container 2: Right-Tall (spans 1x7, starts at col 4, row 1) -->
-                <div class="grid-container div2" onclick="location.href='#about';" style="cursor: pointer;">
-                    <div class="container-content">
-                        <h1 class="hero-title">
-                            <span class="title-line">Hello, I'm</span>
-                            <span class="title-name">Akshay Karthick S</span>
-                        </h1>
-                    </div>
-                </div>
-
-                <!-- Container 3: Bottom-Middle-Wide (spans 2x1, starts at col 2, row 8) -->
-                <div class="grid-container div3">
-                    <div class="container-content">
-                        <div class="india-content">
-                            <h3><i class="fas fa-map-marker-alt india-icon"></i> India</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Container 4: Bottom-Right-Small (1x1, starts at col 4, row 8) -->
-                <div class="grid-container div4">
-                    <div class="container-content">
-                        <div class="single-action">
-                            <a href="#contact" class="cta-touch-button">
-                                <span>GET IN TOUCH</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Container 5: Bottom-Left-Small (1x1, starts at col 1, row 8) -->
-                <div class="grid-container div5">
-                    <div class="container-content">
-                        <div class="single-action">
-                            <a href="#projects" class="cta-work-button">
-                                <span>MY WORK</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Container 6: Left-Tall (spans 1x6, starts at col 1, row 2) -->
-                <div class="grid-container div6">
-                    <div class="container-content">
-                        <div class="github-status">
-                            <div class="status-content">
-                                <div class="status-indicator">
-                                    <div class="status-dot"></div>
-                                </div>
-                                <div class="status-text">
-                                    <h4>GitHub Stats</h4>
-                                    <div class="github-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-number" id="repo-count">-</span>
-                                            <span class="stat-label">Repositories</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-number" id="star-count">-</span>
-                                            <span class="stat-label">Stars</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-number" id="commit-count">-</span>
-                                            <span class="stat-label">Commits</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Container 7: Top-Middle-Left-Small (1x1, starts at col 2, row 1) -->
-                <div class="grid-container div7">
-                    <div class="container-content">
-                    <div class="tech-stack-content">
-                        <div class="scroller" data-direction="right" data-speed="slow">
-                            <div class="tech-icons-grid">
-                                    <!-- Tech Icons -->
-                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
-                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
-                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
-                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-icon crewai">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
-                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
-                                    </svg>
-                                    <span>CrewAI</span>
-                                </div>
-                                    <!-- Duplicate icons for seamless scrolling -->
-                                <div class="tech-icon django"><i class="fab fa-python"></i><span>Django</span></div>
-                                <div class="tech-icon python"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-icon html"><i class="fab fa-html5"></i><span>HTML</span></div>
-                                <div class="tech-icon css"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-                                <div class="tech-icon github"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-icon react"><i class="fab fa-react"></i><span>React</span></div>
-                                <div class="tech-icon docker"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-icon postgresql"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-icon crewai">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="48" fill="#2ecc71"/>
-                                        <path d="M65 30 A25 25 0 1 0 65 70 L58 63 A15 15 0 1 1 58 37 Z" fill="white"/>
-                                    </svg>
-                                    <span>CrewAI</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Container 8: Top-Middle-Right-Small (1x1, starts at col 3, row 1) -->
-                <div class="grid-container div8">
-                    <div class="container-content">
-                        <div class="social-circles hero-social-circles">
-                            <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="social-circle github">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/akshay-karthick-s" target="_blank" rel="noopener noreferrer" class="social-circle linkedin">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://ak-sy.medium.com/" target="_blank" rel="noopener noreferrer" class="social-circle medium">
-                                <i class="fab fa-medium"></i>
-                            </a>
-                        </div>
-                            </div>
-                        </div>
+                <div class="hero-image">
+                    <img src="ak.jpg" alt="Akshay Karthick S" class="profile-image-circle">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- About Section -->
         <section id="about" class="about">
