@@ -894,6 +894,10 @@ main {
     justify-content: center;
   }
 
+  .hero-social-links {
+    justify-content: center;
+  }
+
   .modern-hero-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
