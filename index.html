@@ -41,6 +41,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +60,7 @@
 
     <!-- Background Elements -->
     <div class="bg-elements" aria-hidden="true">
+        <div class="animated-gradient"></div>
         <div class="grid-overlay"></div>
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
@@ -114,7 +118,7 @@
                     <div class="container-content">
                         <h1 class="hero-title">
                             <span class="title-line">Hello, I'm</span>
-                            <span class="title-name">Akshay Karthick S</span>
+                            <span class="title-name" id="typed-name">Akshay Karthick S</span>
                         </h1>
                     </div>
                 </div>
@@ -1417,6 +1421,48 @@
 
         // Fetch and display Medium posts
         document.addEventListener('DOMContentLoaded', () => {
+            // Typing animation for name with fade transitions
+            const typedEl = document.getElementById('typed-name');
+            const fullText = 'Akshay Karthick S';
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (typedEl) {
+                if (prefersReducedMotion) {
+                    typedEl.textContent = fullText;
+                } else {
+                    let idx = 0;
+                    function typeNext() {
+                        typedEl.classList.add('fade-in');
+                        typedEl.textContent = fullText.slice(0, idx + 1);
+                        idx += 1;
+                        if (idx < fullText.length) {
+                            setTimeout(typeNext, 90);
+                        } else {
+                            setTimeout(startErase, 1800);
+                        }
+                    }
+                    function startErase() {
+                        typedEl.classList.remove('fade-in');
+                        typedEl.classList.add('fade-out');
+                        setTimeout(() => {
+                            typedEl.classList.remove('fade-out');
+                            eraseNext();
+                        }, 420);
+                    }
+                    function eraseNext() {
+                        typedEl.textContent = fullText.slice(0, idx - 1);
+                        idx -= 1;
+                        if (idx > 0) {
+                            setTimeout(eraseNext, 50);
+                        } else {
+                            setTimeout(typeNext, 600);
+                        }
+                    }
+                    typedEl.textContent = '';
+                    setTimeout(typeNext, 300);
+                }
+            }
+
             const mediumUsername = '@ak-sy';
             const mediumRssFeed = `https://medium.com/feed/${mediumUsername}`;
             const rssToJsonApi = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(mediumRssFeed)}`;
