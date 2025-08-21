@@ -543,9 +543,12 @@ main {
 .hero-name {
     font-size: 4.5rem;
     font-weight: 800;
-    color: var(--text-primary);
     line-height: 1.1;
     margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-buttons {
@@ -605,13 +608,19 @@ main {
     flex-shrink: 0;
 }
 
-.profile-image-circle {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+.profile-image-box {
+    width: 350px;
+    height: 450px;
+    border-radius: var(--radius-2xl);
     object-fit: cover;
-    filter: grayscale(100%);
     border: 5px solid var(--border-light);
+    box-shadow: var(--shadow-xl);
+    transition: all var(--animation-duration) var(--animation-timing);
+}
+
+.profile-image-box:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-2xl);
 }
 
 .hero {
@@ -866,6 +875,25 @@ main {
 }
 
 @media (max-width: 768px) {
+  .hero-content-new {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-2xl);
+  }
+
+  .hero-name {
+    font-size: 3rem;
+  }
+
+  .profile-image-box {
+    width: 280px;
+    height: 380px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
   .modern-hero-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -898,6 +926,14 @@ main {
 }
 
 @media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .profile-image-box {
+    width: 220px;
+    height: 300px;
+  }
   .modern-hero-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(9, 1fr);
