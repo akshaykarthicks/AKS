@@ -4369,6 +4369,38 @@ ured Showcase Styles */
     transform: translate(-50%, -50%) scale(1.5);
     background-color: rgba(59, 130, 246, 0.2);
 }
+
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-primary);
+    font-size: 2rem;
+    text-decoration: none;
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+.scroll-down-arrow i {
+    transition: color 0.3s ease;
+}
+
+.scroll-down-arrow:hover i {
+    color: var(--accent);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
 .tech-icon.crewai svg {
     width: 25px;
     height: 25px;
@@ -4448,5 +4480,19 @@ ured Showcase Styles */
 
 /* Ensure stacking above animation */
 .hero-container { position: relative; z-index: 1; }
+
+.animate-hero-text .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(var(--stagger) * 150ms);
+}
+
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(var(--stagger) * 150ms);
+}
 
 
