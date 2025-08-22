@@ -39,7 +39,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -99,12 +99,32 @@
    <!-- Main Content -->
 <main id="main-content">
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero hero-waves">
+        <div class="hero-animated-bg" aria-hidden="true">
+            <svg class="waves-svg" viewBox="0 0 1440 800" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+                    </linearGradient>
+                    <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="goo"/><feBlend in="SourceGraphic" in2="goo"/></filter>
+                </defs>
+                <g fill="url(#waveFill)" stroke="#ffffff" stroke-opacity="0.12" stroke-width="10" filter="url(#goo)">
+                    <path class="wave-path" d="M0,200 C200,120 320,260 520,200 C720,140 840,300 1040,220 C1240,140 1360,260 1440,200 L1440,0 L0,0 Z"></path>
+                    <path class="wave-path delay-1" d="M0,340 C220,280 320,420 540,360 C760,300 840,460 1060,380 C1280,300 1360,420 1440,360 L1440,0 L0,0 Z"></path>
+                    <path class="wave-path delay-2" d="M0,520 C240,460 320,600 560,540 C800,480 840,640 1080,560 C1320,480 1360,600 1440,540 L1440,0 L0,0 Z"></path>
+                </g>
+            </svg>
+        </div>
+
+        <a href="#projects" class="hero-top-cta" aria-label="Jump to my work">My Work</a>
+
         <div class="hero-container">
             <div class="hero-content-new">
                 <div class="hero-text">
                     <p class="hero-intro">Hello I'm</p>
-                    <h1 class="hero-name">Akshay Karthick</h1>
+                    <h1 class="hero-name hero-display">Akshay Karthick<span class="hero-dot" aria-hidden="true">.</span></h1>
+                    <p class="hero-role">UX/UI Designer</p>
                     <div class="hero-social-links">
                         <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <i class="fab fa-github"></i>
@@ -121,7 +141,7 @@
                         <a href="#projects" class="hero-button secondary">My Work</a>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image is-hidden-mobile">
                     <img src="ak1.jpg" alt="Akshay Karthick" class="profile-image-box">
                 </div>
             </div>

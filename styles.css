@@ -4364,3 +4364,83 @@ ured Showcase Styles */
     height: 25px;
     color: #2ecc71; /* CrewAI green (adjust as you like) */
 }
+
+/* Hero Waves Enhancement */
+.hero-waves {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-animated-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.waves-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.65;
+}
+
+.wave-path { animation: waveMove 16s linear infinite; }
+.wave-path.delay-1 { animation-delay: -4s; }
+.wave-path.delay-2 { animation-delay: -8s; }
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-60px) translateY(10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Top-center CTA */
+.hero-top-cta {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  color: var(--bg-primary);
+  background: var(--accent);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 6px 24px rgba(255,255,255,0.1);
+}
+
+.hero-top-cta:hover { filter: brightness(0.95); }
+
+/* Display Title & Role */
+.hero-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #f6f4ef;
+}
+
+.hero-dot {
+  color: #ff2a2a;
+}
+
+.hero-role {
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xl);
+  color: var(--text-secondary);
+}
+
+/* Ensure stacking above animation */
+.hero-container { position: relative; z-index: 1; }
+
+/* Hide image on small screens for minimal look */
+.is-hidden-mobile { display: none; }
+@media (min-width: 960px) {
+  .is-hidden-mobile { display: block; }
+}
