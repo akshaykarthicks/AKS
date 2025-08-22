@@ -541,11 +541,21 @@ main {
 }
 
 .hero-name {
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--space-xl);
     background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subheading {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, var(--success) 0%, #00c3ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -4439,8 +4449,4 @@ ured Showcase Styles */
 /* Ensure stacking above animation */
 .hero-container { position: relative; z-index: 1; }
 
-/* Hide image on small screens for minimal look */
-.is-hidden-mobile { display: none; }
-@media (min-width: 960px) {
-  .is-hidden-mobile { display: block; }
-}
+
