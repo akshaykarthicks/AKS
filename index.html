@@ -1021,7 +1021,35 @@
                     <div class="section-line" aria-hidden="true"></div>
                 </header>
 
-                <div class="blog-grid"></div>
+                <div class="blog-grid">
+                    <!-- Blog posts will be loaded here dynamically -->
+                    <article class="blog-card visible">
+                        <div class="blog-placeholder">
+                            <i class="fas fa-rss"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">
+                                <a href="https://ak-sy.medium.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+                                    My Latest Articles
+                                </a>
+                            </h3>
+                            <p class="blog-excerpt">
+                                Check out my Medium profile for my latest technical articles and tutorials on Django, AI, and web development.
+                            </p>
+                            <div class="blog-tags">
+                                <span class="blog-tag">Django</span>
+                                <span class="blog-tag">AI</span>
+                                <span class="blog-tag">Web Development</span>
+                            </div>
+                        </div>
+                        <div class="blog-meta">
+                            <span class="read-time">
+                                <i class="fas fa-clock"></i>
+                                Updated regularly
+                            </span>
+                        </div>
+                    </article>
+                </div>
 
                 <div class="blog-cta">
                     <a href="https://medium.com/@ak-sy" target="_blank" rel="noopener noreferrer" class="cta-button">
@@ -1043,7 +1071,7 @@
                 </header>
 
                 <div class="contact-content">
-                    <p class="contact-text">Let's Work Together</p>
+                    <h3 class="contact-text">Let's  <span class="highlight-featured">Work Together :)</span></h3>
                     <div class="contact-social">
                         <a href="mailto:akshaykarthick01@gmail.com" class="social-link" aria-label="Send me an email">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -1221,16 +1249,32 @@
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         // Observe elements for animation (sections excluded to remove unwanted animations)
-        document.querySelectorAll('.ai-showcase-card, .quick-card').forEach(el => {
+        document.querySelectorAll('.ai-showcase-card, .quick-card, .blog-card, .tools-grid').forEach(el => {
             observer.observe(el);
         });
+
+        // Section reveal on scroll
+        setTimeout(() => {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }, 500);
 
         // Parallax effect for gradient orbs
         let ticking = false;
@@ -1292,6 +1336,14 @@
         setTimeout(() => {
             chatBubble.classList.add('show');
         }, 3000);
+
+        // Reveal the first section (hero) immediately
+        setTimeout(() => {
+            const heroSection = document.getElementById('home');
+            heroSection.style.transition = 'opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            heroSection.style.opacity = '1';
+            heroSection.style.transform = 'translateY(0) scale(1)';
+        }, 100);
 
         // Keyboard navigation removed (no carousel)
 
@@ -1392,6 +1444,9 @@
                                 </div>
                             `;
                             blogGrid.appendChild(blogCard);
+                            
+                            // Add observer to new blog cards
+                            observer.observe(blogCard);
                         });
                     } else {
                         console.error('Failed to fetch Medium posts:', data.message);
@@ -1442,18 +1497,6 @@
             }
         }
     </script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script>
-        const lenis = new Lenis()
-
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
-
-        requestAnimationFrame(raf)
-    </script>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1527,5 +1570,6 @@
 </body>
 
 </html>
+
 
 
