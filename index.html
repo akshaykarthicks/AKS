@@ -154,7 +154,7 @@
     </section>
 
         <!-- About Section -->
-        <section id="about" class="about fade-in-section">
+        <section id="about" class="about">
             <div class="container">
                 <header class="section-header">
                     <span class="section-number" aria-hidden="true">01</span>
@@ -1013,7 +1013,7 @@
         </section>
 
         <!-- Blog Section -->
-        <section id="blog" class="blog fade-in-section">
+        <section id="blog" class="blog">
             <div class="container">
                 <header class="section-header">
                     <span class="section-number" aria-hidden="true">03</span>
@@ -1034,7 +1034,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact fade-in-section">
+        <section id="contact" class="contact">
             <div class="container">
                 <header class="section-header">
                     <span class="section-number" aria-hidden="true">03</span>
@@ -1227,8 +1227,8 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.fade-in-section, .ai-showcase-card, .quick-card').forEach(el => {
+        // Observe elements for animation (sections excluded to remove unwanted animations)
+        document.querySelectorAll('.ai-showcase-card, .quick-card').forEach(el => {
             observer.observe(el);
         });
 
