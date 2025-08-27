@@ -80,6 +80,8 @@
   --animation-duration: 300ms;
   --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --scroll-reveal-duration: 0.8s;
+  --scroll-reveal-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   /* Glassmorphism */
   --glass-backdrop: blur(20px);
@@ -160,6 +162,74 @@ main {
 
 .skip-nav:focus {
   top: 6px;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
+              transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
+              transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
+              transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--scroll-reveal-duration) var(--scroll-reveal-timing),
+              transform var(--scroll-reveal-duration) var(--scroll-reveal-timing);
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.scroll-reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.scroll-reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.scroll-reveal-delay-4 {
+  transition-delay: 0.4s;
 }
 
 /* ==========================================================================
@@ -1628,16 +1698,7 @@ section {
   background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 28px 28px;
 }
-section, .section {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
 
-section::before,
-section::after {
-  content: none !important;
-}
 
 /* Section Headers */
 .section-header {
