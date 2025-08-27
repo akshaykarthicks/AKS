@@ -125,7 +125,10 @@ a:focus {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg-primary);
+  background-color: #0a0a0a;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -978,13 +981,13 @@ main {
 
 .footer {
   background: var(--bg-secondary);
-  border-top: 2px solid var(--border-glass);
+  /* border-top: 2px solid var(--border-glass); */
   padding: var(--space-4xl) 0 var(--space-2xl) 0;
   margin-top: var(--space-5xl);
   position: relative;
 }
 
-.footer::before {
+/* .footer::before {
   content: '';
   position: absolute;
   top: -1px;
@@ -993,7 +996,7 @@ main {
   height: 1px;
   background: var(--border-glass);
   opacity: 0.5;
-}
+} */
 
 .footer-container {
   max-width: 1200px;
@@ -1105,7 +1108,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: var(--space-xl) var(--space-xl) 0 var(--space-xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
   margin-top: var(--space-2xl);
 }
 
@@ -1589,8 +1592,8 @@ main {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Scroll-triggered fade-in animation */
-.fade-in-section {
+/* Scroll-triggered fade-in animation - DISABLED */
+/* .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -1599,7 +1602,7 @@ main {
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 /* ==========================================================================
    COMMON STYLES
@@ -1618,14 +1621,25 @@ section {
 
 /* Dot-grid background for content sections */
 #about,
-#projects,
 #blog,
-#contact {
+#contact,
+#projects {
   background-color: #0a0a0a;
   background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+section, .section {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 
+section::before,
+section::after {
+  content: none !important;
+}
+
+/* Section Headers */
 .section-header {
   display: flex;
   align-items: center;
@@ -1634,13 +1648,13 @@ section {
   margin-top: var(--space-2xl);
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.6s ease;
+  /* transition: all 0.6s ease; */
 }
 
-.section-header.animate-in {
+/* .section-header.animate-in {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 .section-number {
   font-family: var(--font-mono);
@@ -1669,7 +1683,7 @@ section {
   background: var(--bg-primary);
   padding: var(--space-3xl) 0;
   margin-top: var(--space-3xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
 }
 
 /* Tech Stack Container */
@@ -2124,7 +2138,7 @@ section {
   background: var(--bg-primary);
   padding: var(--space-4xl) 0;
   margin-top: var(--space-3xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
 }
 
 .projects .section-header {
@@ -2603,10 +2617,10 @@ section {
    ========================================================================== */
 
 .section-separator {
-  height: 1px;
-  background: var(--border-glass);
+  /* height: 1px; */
+  /* background: var(--border-glass); */
   margin: var(--space-3xl) 0;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 /* ==========================================================================
@@ -2617,7 +2631,7 @@ section {
   background: var(--bg-primary);
   padding: var(--space-4xl) 0;
   margin-top: var(--space-3xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
 }
 
 .blog-grid {
@@ -2781,7 +2795,7 @@ section {
   text-align: center;
   margin-top: var(--space-3xl);
   padding-top: var(--space-2xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
 }
 
 .cta-button {
@@ -2886,11 +2900,11 @@ section {
   padding: var(--space-4xl) 0;
   margin-top: var(--space-3xl);
   margin-bottom: var(--space-5xl);
-  border-top: 1px solid var(--border-glass);
+  /* border-top: 1px solid var(--border-glass); */
   position: relative;
 }
 
-.contact::after {
+/* .contact::after {
   content: '';
   position: absolute;
   bottom: -1px;
@@ -2899,15 +2913,15 @@ section {
   height: 1px;
   background: var(--border-glass);
   opacity: 0.5;
-}
+} */
 
 /* Section Separator */
 .section-separator {
-  height: 2px;
-  background: var(--border-glass);
+  /* height: 2px; */
+  /* background: var(--border-glass); */
   margin: var(--space-4xl) 0;
-  opacity: 0.3;
-  border-radius: 1px;
+  /* opacity: 0.3; */
+  /* border-radius: 1px; */
 }
 
 .contact-content {
