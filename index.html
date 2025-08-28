@@ -1598,6 +1598,20 @@
             }
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const miniToolsContainer = document.querySelector('.mini-tools-container');
+            const miniToolsGrid = document.querySelector('.mini-tools-grid');
+
+            miniToolsContainer.addEventListener('mouseenter', () => {
+                miniToolsGrid.style.animationPlayState = 'paused';
+            });
+
+            miniToolsContainer.addEventListener('mouseleave', () => {
+                miniToolsGrid.style.animationPlayState = 'running';
+            });
+        });
+    </script>
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
