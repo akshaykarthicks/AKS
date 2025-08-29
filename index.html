@@ -1125,6 +1125,13 @@
                             </div>
                             <img src="images/lk.png" alt="LinkedIn Post Crafter" class="mini-tool-card-image">
                         </a>
+                        <a href="https://ai.studio/apps/drive/1JbpjFnf_f9BIzF1cnERW3S-eNdhK3ZzW" class="mini-tool-card" style="text-decoration:none; color:inherit;">
+                            <div class="mini-tool-card-text">
+                                <h3>Comic Book Creator</h3>
+                                <p>Create your own comic books with AI.</p>
+                            </div>
+                            <img src="images/co.png" alt="Comic Book Creator" class="mini-tool-card-image">
+                        </a>
                         <!-- Duplicates for animation -->
                         <a href="https://ai.studio/apps/drive/1AdYb41_tW7G_F9RP_VEt_4FnKgmfNJDn" class="mini-tool-card" style="text-decoration:none; color:inherit;">
                             <div class="mini-tool-card-text">
@@ -1623,6 +1630,35 @@
 
             miniToolsContainer.addEventListener('mouseleave', () => {
                 miniToolsGrid.style.animationPlayState = 'running';
+            });
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            miniToolsContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                miniToolsContainer.classList.add('active');
+                startX = e.pageX - miniToolsContainer.offsetLeft;
+                scrollLeft = miniToolsContainer.scrollLeft;
+            });
+
+            miniToolsContainer.addEventListener('mouseleave', () => {
+                isDown = false;
+                miniToolsContainer.classList.remove('active');
+            });
+
+            miniToolsContainer.addEventListener('mouseup', () => {
+                isDown = false;
+                miniToolsContainer.classList.remove('active');
+            });
+
+            miniToolsContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - miniToolsContainer.offsetLeft;
+                const walk = (x - startX) * 3; //scroll-fast
+                miniToolsContainer.scrollLeft = scrollLeft - walk;
             });
         });
     </script>
