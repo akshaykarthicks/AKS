@@ -1,0 +1,36 @@
+{
+    "name": "Akshay Karthick - Django Developer & AI Engineer Portfolio",
+    "short_name": "Akshay Karthick",
+    "description": "Professional portfolio showcasing Django development, AI engineering projects, and full-stack web development expertise",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#FFD700",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en-US",
+    "categories": ["portfolio", "developer", "technology"],
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "16x16 32x32 48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "favicon.ico",
+            "sizes": "180x180",
+            "type": "image/x-icon",
+            "purpose": "apple-touch-icon"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "share-image.jpg",
+            "sizes": "1200x630",
+            "type": "image/jpeg",
+            "label": "Portfolio Homepage"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}
