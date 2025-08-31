@@ -1652,41 +1652,48 @@
             const miniToolsContainer = document.querySelector('.mini-tools-container');
             const miniToolsGrid = document.querySelector('.mini-tools-grid');
 
+            if (!miniToolsContainer || !miniToolsGrid) return;
+
+            let resumeTimeout;
+
+            // Pause animation on hover
             miniToolsContainer.addEventListener('mouseenter', () => {
                 miniToolsGrid.style.animationPlayState = 'paused';
             });
 
+            // Resume animation when leaving (only if not manually scrolling)
             miniToolsContainer.addEventListener('mouseleave', () => {
-                miniToolsGrid.style.animationPlayState = 'running';
+                if (!resumeTimeout) {
+                    miniToolsGrid.style.animationPlayState = 'running';
+                }
             });
 
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            miniToolsContainer.addEventListener('mousedown', (e) => {
-                isDown = true;
-                miniToolsContainer.classList.add('active');
-                startX = e.pageX - miniToolsContainer.offsetLeft;
-                scrollLeft = miniToolsContainer.scrollLeft;
-            });
-
-            miniToolsContainer.addEventListener('mouseleave', () => {
-                isDown = false;
-                miniToolsContainer.classList.remove('active');
-            });
-
-            miniToolsContainer.addEventListener('mouseup', () => {
-                isDown = false;
-                miniToolsContainer.classList.remove('active');
-            });
-
-            miniToolsContainer.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
+            // Mouse wheel scrolling
+            miniToolsContainer.addEventListener('wheel', (e) => {
                 e.preventDefault();
-                const x = e.pageX - miniToolsContainer.offsetLeft;
-                const walk = (x - startX) * 3; //scroll-fast
-                miniToolsContainer.scrollLeft = scrollLeft - walk;
+                
+                // Pause animation during manual scrolling
+                miniToolsGrid.style.animationPlayState = 'paused';
+                
+                // Scroll horizontally
+                const scrollAmount = e.deltaY * 2;
+                miniToolsContainer.scrollLeft += scrollAmount;
+                
+                // Clear existing timeout
+                clearTimeout(resumeTimeout);
+                
+                // Resume animation after scrolling stops
+                resumeTimeout = setTimeout(() => {
+                    miniToolsGrid.style.animationPlayState = 'running';
+                    resumeTimeout = null;
+                }, 1500);
+            });
+
+            // Add mouse wheel scrolling support
+            miniToolsContainer.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const scrollAmount = e.deltaY * 2; // Adjust scroll speed
+                miniToolsContainer.scrollLeft += scrollAmount;
             });
         });
     </script>

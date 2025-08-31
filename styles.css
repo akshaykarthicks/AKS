@@ -185,7 +185,10 @@ main {
 
 /* Mini Tools with AI Section */
 .mini-tools {
-    background: var(--bg-primary);
+    background-color: #0a0a0a;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-attachment: fixed;
     padding: var(--space-4xl) 0;
     margin-top: var(--space-3xl);
 }
@@ -4374,11 +4377,18 @@ section.visible {
 }
 
 .mini-tools-container {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
     position: relative;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.mini-tools-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 @keyframes scroll {
