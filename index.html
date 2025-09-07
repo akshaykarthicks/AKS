@@ -93,7 +93,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -186,15 +186,13 @@
                 <span class="logo-bracket">]</span>
             </div>
             <div class="preloader-spinner"></div>
-            <p class="preloader-text">Loading portfolio...</p>
+            <p class="preloader-text">Preparing something awesome...</p>
         </div>
     </div>
 
     <!-- Loading Screen Completely Removed -->
 
-    <!-- Custom Cursor Elements -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    
 
     <!-- Background Elements -->
     <div class="bg-elements" aria-hidden="true">
@@ -418,7 +416,7 @@
                         <div class="tool-icon">
                             <i class="fas fa-bolt" style="color: #ff6b35;"></i>
                         </div>
-                        <span class="tool-name">Django Ninja</span>
+                        <span class="tool-name">Dj Ninja</span>
                     </div>
 
                     <div class="tool-item">
@@ -437,10 +435,9 @@
 
                     <div class="tool-item">
                         <div class="tool-icon">
-                            <i class="fas fa-play" style="color: #ffffff; transform: rotate(-90deg);"></i>
+                            <i class="fab fa-vuejs" style="color: #000000;"></i>
+                            </div><span class="tool-name">Vercel</span>               
                         </div>
-                        <span class="tool-name">Vercel</span>
-                    </div>
 
                     <div class="tool-item">
                         <div class="tool-icon">
@@ -1659,42 +1656,7 @@
             document.documentElement.style.setProperty('--animation-duration', '0s');
         }
 
-        // Custom Cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: 'forwards' });
-        });
-
-        const links = document.querySelectorAll('a, button, .project-tab, .quick-card, .blog-card');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('hover');
-            });
-            link.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('hover');
-            });
-        });
-
-        document.addEventListener('mousedown', () => {
-            cursorDot.style.transform = 'translate(-50%, -50%) scale(2)';
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        });
-
-        document.addEventListener('mouseup', () => {
-            cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
+        
 
         // Fetch and display Medium posts
         document.addEventListener('DOMContentLoaded', () => {
@@ -1852,78 +1814,82 @@
                 const scrollAmount = e.deltaY * 2; // Adjust scroll speed
                 miniToolsContainer.scrollLeft += scrollAmount;
             });
-        });
-    </script>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Left Section - About -->
-                <div class="footer-section footer-about">
-                    <div class="footer-logo">
-                        <span class="logo-bracket">[</span>
-                        <span class="logo-text">AK</span>
-                        <span class="logo-bracket">]</span>
+        </script>
+        
+                <!-- Custom Cursor and Preloader Script -->
+        
+        <!-- Custom Cursor Script -->
+        
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <!-- Left Section - About -->
+                    <div class="footer-section footer-about">
+                        <div class="footer-logo">
+                            <span class="logo-bracket">[</span>
+                            <span class="logo-text">AK</span>
+                            <span class="logo-bracket">]</span>
+                        </div>
+                        <p class="footer-description">
+                            I'm Akshay - a <span class="highlight-django">Django developer</span>,  Thanks for checking out my site!
+                        </p>
                     </div>
-                    <p class="footer-description">
-                        I'm Akshay - a <span class="highlight-django">Django developer</span>,  Thanks for checking out my site!
-                    </p>
+
+                    <!-- General Section -->
+                    <div class="footer-section">
+                        <h4 class="footer-title">General</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Specifics Section -->
+                    <div class="footer-section">
+                        <h4 class="footer-title">Specifics</h4>
+                        <ul class="footer-links">
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="https://github.com/akshaykarthicks" target="_blank">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/akshay-karthick-s" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://ak-sy.medium.com/" target="_blank">Medium</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- More Section -->
+                    <div class="footer-section">
+                        <h4 class="footer-title">More</h4>
+                        <ul class="footer-links">
+                            <li><a href="#contact">Get in Touch</a></li>
+                            <li><a href="mailto:akshaykarthick01@gmail.com">Email</a></li>
+                            <li><a href="#projects">Portfolio</a></li>
+                            <li><a href="Akshaykarthick_s.pdf" target="_blank" download="Akshay_Karthick_Resume.pdf">Resume</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- General Section -->
-                <div class="footer-section">
-                    <h4 class="footer-title">General</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                    </ul>
-                </div>
-
-                <!-- Specifics Section -->
-                <div class="footer-section">
-                    <h4 class="footer-title">Specifics</h4>
-                    <ul class="footer-links">
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="https://github.com/akshaykarthicks" target="_blank">GitHub</a></li>
-                        <li><a href="https://linkedin.com/in/akshay-karthick-s" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://ak-sy.medium.com/" target="_blank">Medium</a></li>
-                    </ul>
-                </div>
-
-                <!-- More Section -->
-                <div class="footer-section">
-                    <h4 class="footer-title">More</h4>
-                    <ul class="footer-links">
-                        <li><a href="#contact">Get in Touch</a></li>
-                        <li><a href="mailto:akshaykarthick01@gmail.com">Email</a></li>
-                        <li><a href="#projects">Portfolio</a></li>
-                        <li><a href="Akshaykarthick_s.pdf" target="_blank" download="Akshay_Karthick_Resume.pdf">Resume</a></li>
-                    </ul>
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Akshay Karthick S.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/akshay-karthick-s" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://ak-sy.medium.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2024 Akshay Karthick S.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/akshaykarthicks" target="_blank" rel="noopener noreferrer" class="footer-social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/akshay-karthick-s" target="_blank" rel="noopener noreferrer" class="footer-social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://ak-sy.medium.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
-                        <i class="fab fa-medium"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</body>
+        </footer>
+    </body>
 
 </html>

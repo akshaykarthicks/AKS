@@ -1,59 +1,69 @@
+/* Hero: single sky-blue background */
+.hero-section {
+  background-color: #e6f4ff !important;
+  background-image: none !important;
+}
+
+/* Disable internal overlay layer so dots are not duplicated */
+.hero-section .dot-pattern { display: none !important; }
+.hero-section .gradient-overlay { display: none !important; }
 .hidden { display: none !important; }
 /* ==========================================================================
    MODERN PORTFOLIO STYLES - CLEAN & PROFESSIONAL
    ========================================================================== */
 
-/* CSS Custom Properties - Professional Theme */
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (CSS VARIABLES) - BOLD BLOCK THEME
+   ========================================================================== */
+
 :root {
-  /* Theme Colors */
-  --primary: #000000;
-  --primary-light: #1a1a1a;
-  --secondary: #2a2a2a;
-  --accent: #FFD700; /* Gold accent color from hero section */
-  --accent-light: #e5e5e5;
-  --accent-secondary: #d4d4d4;
-  --accent-dark: #a3a3a3;
-  --success: #FFD700; /* Changed to match hero section */
-  --warning: #ff6b35;
-  --error: #ff4444;
+  /* Bold Block Color System */
+  --color-yellow: #ffc900;
+  --color-red: #f44336;
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-grey: #f4f4f4;
+  
+  /* Legacy mappings for compatibility */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-grey);
+  --bg-tertiary: var(--color-grey);
+  --bg-card: var(--color-grey);
+  --bg-glass: var(--color-grey);
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-black);
+  --text-muted: var(--color-black);
+  --text-inverse: var(--color-white);
+  --accent: var(--color-red);
+  --accent-light: var(--color-red);
+  --success: var(--color-yellow);
+  --border: var(--color-black);
+  --border-glass: var(--color-black);
+  --border-focus: var(--color-black);
+  --danger: var(--color-red);
 
-  /* Backgrounds */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
-  --bg-card: rgba(42, 42, 42, 0.6);
-  --bg-overlay: rgba(0, 0, 0, 0.8);
-  --bg-glass: rgba(42, 42, 42, 0.7);
-
-  /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #d4d4d4;
-  --text-muted: #a3a3a3;
-  --text-disabled: #737373;
-  --text-inverse: #000000;
-
-  /* Borders */
-  --border: #333333;
-  --border-light: #404040;
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --border-focus: #FFD700; /* Changed to match hero section */
-
-  /* Shadows */
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.4);
-  --shadow-2xl: 0 20px 60px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3); /* Changed to match hero section */
-
-  /* Border Radius */
+  /* Keep existing variables for compatibility */
+  --primary: var(--color-black);
+  --primary-light: var(--color-black);
+  --secondary: var(--color-grey);
+  --accent-secondary: var(--color-grey);
+  --accent-dark: var(--color-black);
+  --warning: var(--color-yellow);
+  --error: var(--color-red);
+  --bg-overlay: var(--color-black);
+  --text-disabled: var(--color-black);
+  --border-light: var(--color-black);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 20px 60px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(255, 201, 0, 0.3);
   --radius: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-2xl: 20px;
   --radius-full: 9999px;
-
-  /* Spacing Scale */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -63,11 +73,10 @@
   --space-3xl: 64px;
   --space-4xl: 80px;
   --space-5xl: 96px;
-
-  /* Typography */
   --font-mono: "JetBrains Mono", "Consolas", monospace;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
+  --font-heading: "Anton", sans-serif;
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
@@ -78,29 +87,329 @@
   --font-size-4xl: 36px;
   --font-size-5xl: 48px;
   --font-size-6xl: 60px;
-
-  /* Animation */
   --animation-duration: 300ms;
   --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --scroll-reveal-duration: 0.8s;
   --scroll-reveal-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  /* Glassmorphism */
   --glass-backdrop: blur(20px);
-  --glass-bg: rgba(42, 42, 42, 0.6);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-  --gradient-card: linear-gradient(135deg, rgba(42, 42, 42, 0.8), rgba(26, 26, 26, 0.6));
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  --glass-bg: var(--color-grey);
+  --glass-border: 1px solid var(--color-black);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, var(--color-grey), var(--color-white));
+  --gradient-card: linear-gradient(135deg, var(--color-grey), var(--color-white));
+  --gradient-glass: linear-gradient(135deg, var(--color-grey), var(--color-white));
 }
 
 /* ==========================================================================
-   BASE STYLES
+   BOLD BLOCK RESET & BASE STYLES
    ========================================================================== */
+
+/* Reset and remove all rounded corners, shadows, and gradients */
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body {
+  background-color: var(--color-white) !important;
+  color: var(--color-black) !important;
+}
+
+/* ==========================================================================
+   THEME ENFORCEMENT: BOLD BLOCK (Light background, dark text)
+   Overrides conflicting dark/glass styles defined later in the file
+   ========================================================================== */
+/* Restore site-wide dot grid and keep standard cursor */
+body {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+  background-attachment: fixed !important;
+  cursor: auto;
+}
+
+
+
+/* Disable decorative backgrounds/effects that clash with text-first theme */
+.bg-elements,
+.dot-pattern,
+.gradient-overlay,
+.gradient-orb,
+.floating-shapes,
+.hero-animated-bg { display: none !important; }
+
+/* Simplify navbar to flat light style */
+.navbar {
+  background: var(--color-white) !important;
+  border: 4px solid var(--color-black) !important;
+  box-shadow: none !important;
+}
+.nav-link { color: var(--color-black) !important; }
+.nav-link.active {
+  background: transparent !important;
+  border-color: var(--color-black) !important;
+  box-shadow: none !important;
+}
+
+/* Flatten cards and project panels to match Bold Block theme */
+.ai-showcase-card,
+.quick-card,
+.masonry-item,
+.skills-card,
+.tools-card,
+.education-card,
+.project-panel,
+.project-tab,
+.tool-item {
+  background: var(--color-grey) !important;
+  border: 3px solid var(--color-black) !important;
+  box-shadow: none !important;
+}
+
+/* Ensure text uses dark color across feature/AI sections */
+.featured-main-title,
+.featured-description,
+.ai-showcase-title,
+.ai-showcase-description,
+.preview-title,
+.project-title,
+.project-description,
+.blog-title a,
+.contact-text,
+.contact-subtext {
+  color: var(--color-black) !important;
+}
+
+/* Preview containers on light theme */
+.ai-showcase-preview,
+.blog-placeholder,
+.blog-image { background: var(--color-white) !important; }
+
+/* Make mini-tools section light and flat */
+.mini-tools {
+  background: var(--color-white) !important;
+  background-image: none !important;
+}
+.mini-tool-card {
+  background: var(--color-grey) !important;
+  border: 3px solid var(--color-black) !important;
+  box-shadow: none !important;
+}
+
+/* Disable custom cursor visuals */
+.cursor-dot,
+.cursor-outline { display: none !important; }
+
+/* Hero visuals on light sky blue theme */
+.hero-section { background-color: #e6f4ff !important; }
+.hero-right .image-background { background-color: #ffd700 !important; }
+.name, .greeting, .hero-description { color: #000000 !important; }
+.last-name { color: #d4af37 !important; }
+.scroll-down-arrow { color: #000000 !important; }
+
+/* ==========================================================================
+   SINGLE BACKGROUND SOURCE: Use body dots only
+   Make content sections transparent so only body dots show (no double layers)
+   ========================================================================= */
+#about, #projects, #blog, #contact,
+.about, .projects, .blog, .contact,
+.mini-tools {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ==========================================================================
+   SECTION BACKDROP: Diagonal black blur dots on all sections except hero
+   ========================================================================= */
+section:not(.hero-section) {
+  position: relative;
+  z-index: 1;
+}
+
+section:not(.hero-section)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Two offset radial layers to create a diagonal dot feel */
+  background-image:
+    radial-gradient(color-mix(in oklab, var(--color-yellow) 100%, transparent) 1.5px, transparent 1.5px),
+    radial-gradient(color-mix(in oklab, var(--color-yellow) 65%, transparent) 1.5px, transparent 1.5px);
+  background-size: 28px 28px, 28px 28px;
+  background-position: 0 0, 14px 14px; /* diagonal offset */
+  filter: blur(0.4px);
+  opacity: 1;
+}
+
+/* Ensure hero stays clean */
+.hero-section::before { content: none; }
+
+/* Section separators: thin yellow-to-red gradient lines between major sections */
+section::after {
+  content: '';
+  display: block;
+  height: 2px;
+  margin: var(--space-3xl) auto 0 auto;
+  max-width: 1100px;
+  background: linear-gradient(90deg, #ffd700, #ff3b30);
+}
+
+/* Buttons already styled globally; ensure neutral hovers consistent */
+.btn-primary:hover,
+.btn-secondary:hover,
+.cta-button:hover,
+.social-link:hover,
+.project-tab:hover {
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   PROJECTS: Improve readability and remove borders in AI/Featured/All Projects
+   ========================================================================== */
+/* Typography clarity */
+#projects .featured-main-title,
+#projects .featured-description,
+#projects .ai-showcase-title,
+#projects .ai-showcase-description,
+#projects .project-title,
+#projects .project-description,
+#projects .quick-info h4,
+#projects .quick-info p {
+  color: #000000 !important;
+}
+
+#projects .ai-showcase-title { font-size: 2.1rem !important; line-height: 1.25 !important; font-weight: 800 !important; }
+#projects .ai-showcase-description { font-size: 1.05rem !important; line-height: 1.65 !important; }
+#projects .featured-description { font-size: 1.1rem !important; line-height: 1.7 !important; }
+#projects .project-description { font-size: 1rem !important; line-height: 1.7 !important; color: #000 !important; }
+/* #projects .quick-info h4 { font-weight: 700 !important; } */
+
+/* Remove borders from project cards/tabs for a cleaner look */
+#projects .ai-showcase-card,
+#projects .quick-card,
+#projects .masonry-item,
+#projects .project-tab,
+#projects .mini-tool-card { border: none !important; }
+
+/* Ensure backgrounds stay light without overlays */
+#projects .ai-showcase-card,
+#projects .quick-card,
+#projects .masonry-item { background: #f4f4f4 !important; }
+
+/* Individual card borders for clear separation */
+#projects .ai-showcase-card,
+#projects .quick-card,
+#projects .masonry-item {
+  border: 3px solid var(--color-black) !important;
+}
+
+/* Force black text inside all project cards for readability */
+#projects .ai-showcase-card,
+#projects .ai-showcase-card *:not(i),
+#projects .quick-card,
+#projects .quick-card *:not(i),
+#projects .featured-project,
+#projects .featured-project *:not(i),
+#projects .masonry-item,
+#projects .masonry-item *:not(i) {
+  color: #000000 !important;
+}
+
+/* Preserve icon colors where needed by excluding <i>; links inherit black */
+#projects .ai-showcase-title a,
+#projects .project-title a,
+#projects .quick-card a { color: #000000 !important; }
+
+/* Ensure panels themselves are borderless so only cards are outlined */
+#projects .project-panel { border: none !important; background: transparent !important; }
+
+/* Tabs: flat look and stronger text */
+#projects .project-tab { background: transparent !important; color: #000 !important; font-weight: 800 !important; }
+#projects .project-tab.active { border: none !important; box-shadow: none !important; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ==========================================================================
+   HERO: Add yellow dots pattern only in hero background
+   ========================================================================== */
+.hero-section .hero-background-elements { display: block !important; }
+.hero-section .dot-pattern { display: none !important; }
+.hero-section .gradient-overlay { display: none !important; }
+
+/* ==========================================================================
+   PROJECT BUTTONS: Red boxed buttons and readable text in projects
+   ========================================================================== */
+#projects .project-tab,
+#projects .showcase-link-btn,
+#projects .project-link-btn,
+#projects .cta-button {
+  background-color: var(--color-red) !important;
+  color: var(--color-black) !important;
+  border: 3px solid var(--color-black) !important;
+  box-shadow: 4px 4px 0 var(--color-black) !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+#projects .project-tab.active {
+  text-decoration: none !important;
+  filter: brightness(0.98) !important;
+}
+
+#projects .project-tab:hover,
+#projects .showcase-link-btn:hover,
+#projects .project-link-btn:hover,
+#projects .cta-button:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0 var(--color-black) !important;
+  color: var(--color-black) !important;
+}
+
+/* Ensure icon overlay buttons remain circular but styled */
+#projects .project-link-btn { border-radius: 50% !important; }
+
+/* Override dark backgrounds */
+
+/* Bold Block Typography */
+h1, h2, h3, h4, h5, h6, .section-title, .hero-title, .project-title, .about-main-title, .tools-title {
+  font-family: var(--font-heading) !important;  
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+}
+
+p, li, a, body, .nav-link, .project-description, .about-paragraph {
+  font-family: var(--font-sans) !important;
+}
+
+/* Bold Block Button Styles */
+button, .btn, .cta-button, .social-link, .project-tab, .social-btn, .cta-primary, .hero-buttons a {
+  background-color: var(--color-red) !important;
+  color: var(--color-black) !important;
+  border: 3px solid var(--color-black) !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  box-shadow: 4px 4px 0px var(--color-black) !important;
+  font-family: var(--font-sans) !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover, .btn:hover, .cta-button:hover, .social-link:hover, .project-tab:hover, .social-btn:hover, .cta-primary:hover, .hero-buttons a:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0px var(--color-black) !important;
+}
+
+/* Bold Block Card Styles */
+.project-card, .masonry-item, .skills-card, .contact-form, .about-description, .tools-daily-section, .bg-card, .featured-project, .quick-card, .tool-item {
+  background-color: var(--color-grey) !important;
+  border: 3px solid var(--color-black) !important;
+  box-shadow: none !important;
+}
+
+/* Key Section Dividers */
+.navbar {
+  border-bottom: 4px solid var(--color-black) !important;
+}
 
 *,
 *::before,
@@ -130,17 +439,17 @@ a:focus {
 
 body {
   font-family: var(--font-sans);
-  background-color: #0a0a0a;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-  background-attachment: fixed;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  background-size: initial !important;
+  background-attachment: fixed !important;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  cursor: none;
+  cursor: auto;
 }
 
 /* Debug: Ensure content is visible */
@@ -185,8 +494,6 @@ main {
 
 /* Mini Tools with AI Section */
 .mini-tools {
-    background-color: #0a0a0a;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
     background-size: 28px 28px;
     background-attachment: fixed;
     padding: var(--space-4xl) 0;
@@ -418,12 +725,12 @@ section.visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-primary);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.8s ease;
 }
 
 .preloader.fade-out {
@@ -436,31 +743,33 @@ section.visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
 }
 
 .preloader-logo {
   font-family: var(--font-mono);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
 .preloader-logo .logo-bracket {
-  color: var(--success);
+  color: #FFD700;
   font-weight: 400;
 }
 
 .preloader-spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top: 3px solid var(--success);
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #FFD700;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.8s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 @keyframes spin {
@@ -470,9 +779,16 @@ section.visible {
 
 .preloader-text {
   font-family: var(--font-mono);
-  color: var(--text-secondary);
-  font-size: var(--font-size-sm);
-  letter-spacing: 1px;
+  color: #cccccc;
+  font-size: var(--font-size-base);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 /* ==========================================================================
@@ -653,6 +969,93 @@ section.visible {
 }
 
 /* ==========================================================================
+   CUSTOM CURSOR - MAGIC BOX EFFECT
+   ========================================================================== */
+/* ==========================================================================
+   NAVBAR ACTIVE: Red button-style active state (overrides any prior styles)
+   ========================================================================== */
+.navbar .nav-link.active {
+  background-color: var(--color-red) !important;
+  color: var(--color-black) !important;
+  border: 3px solid var(--color-black) !important;
+  box-shadow: 4px 4px 0 var(--color-black) !important;
+  transform: translateY(0) !important;
+}
+
+.navbar .nav-link.active:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0 var(--color-black) !important;
+}
+
+.cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #4a90e2;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.15s ease, transform 0.1s ease;
+  transform: translate(-50%, -50%) scale(1);
+  mix-blend-mode: difference;
+  will-change: transform;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+}
+
+.cursor::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #9d4edd;
+  border-radius: 50%;
+  opacity: 0.7;
+  transform: translate(-50%, -50%) scale(0.8);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(157, 78, 221, 0.3);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.cursor.click {
+  transform: translate(-50%, -50%) scale(0.7);
+  background-color: rgba(74, 144, 226, 0.5);
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.8);
+}
+
+/* Hide default cursor */
+/* Hide default cursor only when custom cursor is active */
+body.has-custom-cursor html,
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor .clickable,
+body.has-custom-cursor input,
+body.has-custom-cursor textarea,
+body.has-custom-cursor select,
+body.has-custom-cursor [role="button"] {
+  cursor: none;
+}
+
+/* ==========================================================================
    HERO SECTION - MINIMALIST TWO-COLUMN LAYOUT
    ========================================================================== */
 
@@ -662,12 +1065,15 @@ section.visible {
 
 .hero-section {
     min-height: 100vh;
-    background-color: #000000;
+    background: #e6f4ff !important;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
     padding: 0;
+    background-image: radial-gradient(circle at 10px 10px, #333333 2px, transparent 0) !important;
+    background-size: 20px 20px !important;
+    background-attachment: fixed !important;
 }
 
 /* Background Elements */
@@ -689,6 +1095,7 @@ section.visible {
     background-image: radial-gradient(circle at 10px 10px, #333333 2px, transparent 0);
     background-size: 20px 20px;
     opacity: 0.3;
+    display: block !important;
 }
 
 .gradient-overlay {
@@ -708,12 +1115,14 @@ section.visible {
     height: 100%;
     position: relative;
     z-index: 1;
+    background: rgba(230, 244, 255, 0.8);
+    backdrop-filter: blur(5px);
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
     height: 100vh;
     align-items: center;
 }
@@ -727,6 +1136,7 @@ section.visible {
     height: 100%;
     animation: fadeIn 0.8s ease-out 0.2s forwards;
     opacity: 0;
+    padding-left: 60px;
 }
 
 .badge {
@@ -754,7 +1164,7 @@ section.visible {
 
 .name {
     font-family: 'Inter', sans-serif;
-    font-size: 48px;
+    font-size: 8rem;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.2;
@@ -775,6 +1185,8 @@ section.visible {
 
 .hero-description {
     font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    color: #000000;
     animation: slideUp 0.6s ease 0.6s forwards;
     opacity: 0;
     transform: translateY(30px);
@@ -819,18 +1231,21 @@ section.visible {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     animation: fadeIn 0.8s ease-out 0.4s forwards;
     opacity: 0;
+    padding-right: 60px;
 }
 
 .image-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 0;
+    margin-left: 340px;
 }
 
 .image-background {
@@ -2076,8 +2491,6 @@ section.visible {
 #blog,
 #contact,
 #projects {
-  background-color: #0a0a0a;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 28px 28px;
   opacity: 0;
   transform: translateY(50px) scale(0.95);
@@ -2323,6 +2736,10 @@ section.visible {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .tools-grid.visible {
@@ -2341,6 +2758,8 @@ section.visible {
   border-radius: var(--radius-lg);
   transition: all var(--animation-duration) var(--animation-timing);
   cursor: pointer;
+  justify-content: center;
+  width: fit-content;
 }
 
 .tool-item:hover {
@@ -2964,7 +3383,7 @@ section.visible {
 .project-image-wrapper {
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 360px;
 }
 
 .project-img {
@@ -2972,6 +3391,7 @@ section.visible {
   height: 100%;
   object-fit: cover;
   transition: transform var(--animation-duration) var(--animation-timing);
+  transform: scale(1.02);
 }
 
 .masonry-item:hover .project-img {
@@ -3103,9 +3523,9 @@ section.visible {
 
 .quick-info h4 {
   font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: var(--space-xs);
-  color: var(--text-primary);
+  color: #000000 !important;
 }
 
 .quick-info p {
@@ -3149,7 +3569,7 @@ section.visible {
     grid-template-columns: auto 1fr auto;
     gap: var(--space-xl);
     background: transparent;
-    border: none;
+    border: 3px solid var(--color-black) !important;
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     transition: all var(--animation-duration) var(--animation-timing);
@@ -3185,6 +3605,7 @@ section.visible {
   transform: translateY(-5px);
   background: rgba(59, 130, 246, 0.05);
   border-radius: var(--radius-lg);
+  border-color: var(--color-black) !important;
 }
 
 .blog-meta {
@@ -3570,7 +3991,7 @@ section.visible {
   width: 60px;
   height: 60px;
   background: var(--primary-light);
-  color: var(--text-primary);
+  color:white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -3748,6 +4169,7 @@ section.visible {
     top: 10px;
     width: calc(100% - 20px);
     padding: 10px 16px;
+    background: #ffffff !important;
   }
 
   .menu-toggle {
@@ -3759,9 +4181,9 @@ section.visible {
     top: calc(100% + 10px);
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.98);
+    background: #ffffff !important;
     backdrop-filter: blur(30px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid #000000 !important;
     border-radius: 20px;
     flex-direction: column;
     padding: 20px;
@@ -3791,6 +4213,7 @@ section.visible {
     padding: 12px 20px;
     font-size: 1rem;
     width: 100%;
+    color: #000000 !important;
   }
 
   .hero-content {
@@ -4435,19 +4858,19 @@ section.visible {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(30, 30, 30, 0.7); /* Semi-transparent background */
+    background: transparent !important;
 }
 
 .mini-tool-card-text h3 {
     font-size: 1.8rem; /* Increased font size */
     font-weight: 700; /* Bolder title */
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #000000 !important;
 }
 
 .mini-tool-card-text p {
     font-size: 1.1rem; /* Increased font size */
-    color: var(--text-secondary);
+    color: #000000 !important;
     line-height: 1.5; /* Better line height for readability */
 }
 
@@ -5020,10 +5443,10 @@ ured Showcase Styles */
 /* Preview Image Styles */
 .preview-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px;
     object-fit: cover;
-    max-height: 200px;
+    max-height: none;
 }
 
 /* Additional tech badge colors for featured projects */
@@ -5070,39 +5493,72 @@ ured Showcase Styles */
 }
 
 /* Custom Cursor Styles */
+/* Custom cursor styles - simplified and more visible */
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--accent);
+    background-color: #FFD700; /* Bright gold */
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     border-radius: 50%;
-    z-index: 10001;
+    z-index: 9999;
     pointer-events: none;
-    transition: transform 0.2s ease-in-out;
-    box-shadow: 0 0 10px var(--accent);
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    opacity: 0;
+    display: none;
 }
 
 .cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--accent);
+    width: 36px;
+    height: 36px;
+    border: 2px solid #FFD700; /* Bright gold */
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     border-radius: 50%;
-    z-index: 10001;
+    z-index: 9998;
     pointer-events: none;
-    transition: all 0.1s ease-out;
-    box-shadow: 0 0 15px var(--accent);
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    transition: all 0.15s ease-out;
+    background-color: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    opacity: 0;
+    display: none;
 }
 
-.cursor-outline.hover {
+/* Hover state */
+.cursor-outline:hover {
     transform: translate(-50%, -50%) scale(1.5);
-    background-color: rgba(255, 215, 0, 0.2); /* Gold with transparency */
+    background-color: rgba(255, 215, 0, 0.3);
+    border-color: #ffffff;
+}
+
+/* Click state */
+.cursor-dot:active,
+.cursor-outline:active {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Always show native cursor */
+body.has-custom-cursor {
+    cursor: auto !important;
+}
+
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor .btn,
+body.has-custom-cursor .nav-link,
+body.has-custom-cursor input,
+body.has-custom-cursor textarea,
+body.has-custom-cursor select,
+body.has-custom-cursor [role="button"],
+body.has-custom-cursor [data-cursor-hover] {
+    cursor: auto !important;
 }
 
 .scroll-down-arrow {
