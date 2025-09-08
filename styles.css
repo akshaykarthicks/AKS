@@ -2766,7 +2766,8 @@ section.visible {
   transition: all var(--animation-duration) var(--animation-timing);
   cursor: pointer;
   justify-content: center;
-  width: fit-content;
+  width: 100px;
+  height: 100px;
 }
 
 .tool-item:hover {
