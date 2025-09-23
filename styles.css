@@ -5120,19 +5120,11 @@ section.visible {
     display: none; /* Chrome, Safari and Opera */
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
+/* Removed CSS scroll animation; JS marquee handles movement */
 
 .mini-tools-grid {
     display: flex;
     width: fit-content;
-    animation: scroll 40s linear infinite;
     gap: 2rem;
     margin-top: 2rem;
     padding: 1rem 0;
