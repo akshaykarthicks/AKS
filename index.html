@@ -1302,7 +1302,7 @@ recommendations.</p>
                         <a href="https://cleanse-ai.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
                             <div class="mini-tool-card-text">
                                 <h3>CleanseAI</h3>
-                                <p>Cleanseai which help remove object in the image.</p>.</p>
+                                <p>CleanseAI helps remove objects from images.</p>
                             </div>
                             <img src="images/bg.jpg" alt="CleanseAI" class="mini-tool-card-image">
                         </a>
@@ -1377,76 +1377,7 @@ recommendations.</p>
                             <img src="images/mg.png" alt="Motion Graphics Generator" class="mini-tool-card-image">
                         </a>
                         <!-- Duplicates for animation -->
-                        <a href="https://cleanse-ai.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>CleanseAI</h3>
-                                <p>Cleanseai which help remove object in the image.</p>
-                            </div>
-                            <img src="images/bg.jpg" alt="CleanseAI" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://image2-code.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>Image2HTML Converter</h3>
-                                <p>Convert your images to HTML and CSS code with AI.</p>
-                            </div>
-                            <img src="images/image5.png" alt="Image2HTML Converter" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://opal.withgoogle.com/?flow=drive:/1P9LXdU7GUtLHhjE1Ji1PdKZ2ufzRf86K&mode=app&shared=true" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>BrandSpark AI</h3>
-                                <p>Generate branding assets for your business in seconds.</p>
-                            </div>
-                            <img src="images/image2.png" alt="BrandSpark AI" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://readme-maker-delta.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>README Generator</h3>
-                                <p>Create beautiful and informative README files for your projects.</p>
-                            </div>
-                            <img src="images/image3.png" alt="README Generator" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://ai.studio/apps/drive/1Agb1oAzaJA3oJBL1XC9UpxBHWgUg4jMb" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>Django Tutor</h3>
-                                <p>Learn Django with an AI-powered tutor.</p>
-                            </div>
-                            <img src="images/image4.png" alt="Django Tutor" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://linkedin-crafter-psi.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>LinkedIn Post Crafter</h3>
-                                <p>Craft engaging LinkedIn posts with AI assistance.</p>
-                            </div>
-                            <img src="images/lk.png" alt="LinkedIn Post Crafter" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://job-lens-ai-phi.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>joblens AI</h3>
-                                <p>Joblens AI Your AI-powered job search lens</p>
-                            </div>
-                            <img src="images/jb.jpg" alt="joblens AI" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://podframe.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>PodFrame</h3>
-                                <p>An AI-powered tool that generates professional podcast scripts</p>
-                            </div>
-                            <img src="images/pd.png" alt="PodFrame" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://poml-architect.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>POML Architect</h3>
-                                <p>Your Conversational Prompt Engineering Assistant using poml</p>
-                            </div>
-                            <img src="images/poml.png" alt="POML Architect" class="mini-tool-card-image">
-                        </a>
-                        <a href="https://ai.studio/apps/drive/1oyXxHw9JFbJp0330gd_0zQ1tRmpwfp26" class="mini-tool-card" style="text-decoration:none; color:inherit;">
-                            <div class="mini-tool-card-text">
-                                <h3>Motion Graphics Generator</h3>
-                                <p>Transform your ideas into stunning animations with AI.</p>
-                            </div>
-                            <img src="images/mg.png" alt="Motion Graphics Generator" class="mini-tool-card-image">
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -1870,48 +1801,68 @@ recommendations.</p>
 
             if (!miniToolsContainer || !miniToolsGrid) return;
 
+            // Disable CSS animation for JS-driven marquee
+            miniToolsGrid.style.animation = 'none';
+
+            // Marquee settings
+            const pixelsPerSecond = 120; // adjust speed
+            let maxScroll = 0;
+            let isPaused = false;
             let resumeTimeout;
 
-            // Pause animation on hover
+            const recalc = () => {
+                maxScroll = Math.max(0, miniToolsGrid.scrollWidth - miniToolsContainer.clientWidth);
+            };
+
+            recalc();
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(recalc, 100);
+            });
+
+            // Pause/resume on hover
             miniToolsContainer.addEventListener('mouseenter', () => {
-                miniToolsGrid.style.animationPlayState = 'paused';
+                isPaused = true;
             });
-
-            // Resume animation when leaving (only if not manually scrolling)
             miniToolsContainer.addEventListener('mouseleave', () => {
-                if (!resumeTimeout) {
-                    miniToolsGrid.style.animationPlayState = 'running';
-                }
+                if (!resumeTimeout) isPaused = false;
             });
 
-            // Mouse wheel scrolling
+            // Wheel control (horizontal) with auto-resume
             miniToolsContainer.addEventListener('wheel', (e) => {
                 e.preventDefault();
-                
-                // Pause animation during manual scrolling
-                miniToolsGrid.style.animationPlayState = 'paused';
-                
-                // Scroll horizontally
+                isPaused = true;
                 const scrollAmount = e.deltaY * 2;
-                miniToolsContainer.scrollLeft += scrollAmount;
-                
-                // Clear existing timeout
+                miniToolsContainer.scrollLeft = Math.min(maxScroll, Math.max(0, miniToolsContainer.scrollLeft + scrollAmount));
                 clearTimeout(resumeTimeout);
-                
-                // Resume animation after scrolling stops
                 resumeTimeout = setTimeout(() => {
-                    miniToolsGrid.style.animationPlayState = 'running';
+                    isPaused = false;
                     resumeTimeout = null;
-                }, 1500);
-            });
+                }, 1200);
+            }, { passive: false });
 
-            // Add mouse wheel scrolling support
-            miniToolsContainer.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                const scrollAmount = e.deltaY * 2; // Adjust scroll speed
-                miniToolsContainer.scrollLeft += scrollAmount;
-            });
-        </script>
+            // RAF ticker for continuous scroll and looping without duplicates
+            let lastTs = 0;
+            const tick = (ts) => {
+                if (!lastTs) lastTs = ts;
+                const dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+
+                if (!isPaused && maxScroll > 0) {
+                    const delta = pixelsPerSecond * dt;
+                    let next = miniToolsContainer.scrollLeft + delta;
+                    if (next >= maxScroll) {
+                        // Loop back to start; edge mask should hide the jump
+                        next = 0;
+                    }
+                    miniToolsContainer.scrollLeft = next;
+                }
+                requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        });
+    </script>
         
                 <!-- Custom Cursor and Preloader Script -->
         
