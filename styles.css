@@ -5114,6 +5114,7 @@ section.visible {
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    -webkit-overflow-scrolling: touch; /* smooth native inertia on iOS */
 }
 
 .mini-tools-container::-webkit-scrollbar {
