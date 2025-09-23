@@ -1842,6 +1842,45 @@ recommendations.</p>
                 }, 1200);
             }, { passive: false });
 
+            // Touch drag support for mobile
+            let touchStartX = 0;
+            let startScrollLeft = 0;
+
+            const onTouchStart = (e) => {
+                if (!e.touches || e.touches.length === 0) return;
+                isPaused = true;
+                touchStartX = e.touches[0].clientX;
+                startScrollLeft = miniToolsContainer.scrollLeft;
+            };
+
+            const onTouchMove = (e) => {
+                if (!e.touches || e.touches.length === 0) return;
+                const currentX = e.touches[0].clientX;
+                const deltaX = touchStartX - currentX; // drag left moves content right
+                miniToolsContainer.scrollLeft = Math.min(maxScroll, Math.max(0, startScrollLeft + deltaX));
+                // prevent vertical scroll hijack only if horizontal move is significant
+                if (Math.abs(deltaX) > 4) {
+                    e.preventDefault();
+                }
+            };
+
+            const onTouchEnd = () => {
+                clearTimeout(resumeTimeout);
+                resumeTimeout = setTimeout(() => {
+                    isPaused = false;
+                    resumeTimeout = null;
+                }, 1200);
+            };
+
+            miniToolsContainer.addEventListener('touchstart', onTouchStart, { passive: true });
+            miniToolsContainer.addEventListener('touchmove', onTouchMove, { passive: false });
+            miniToolsContainer.addEventListener('touchend', onTouchEnd, { passive: true });
+
+            // Reduce work when tab is hidden (mobile power saving)
+            document.addEventListener('visibilitychange', () => {
+                isPaused = document.hidden || isPaused;
+            });
+
             // RAF ticker for continuous scroll and looping without duplicates
             let lastTs = 0;
             const tick = (ts) => {
