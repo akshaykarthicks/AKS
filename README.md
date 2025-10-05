@@ -1,4 +1,4 @@
-# Akshay Karthick S - Developer & Agentic AI Portfolio
+# Akshay Karthick S - Backend Developer & Agentic AI Portfolio
 
 ## 🚀 Introduction
 
