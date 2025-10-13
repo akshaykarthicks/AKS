@@ -70,7 +70,7 @@
     <!-- <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE"> -->
 
     <!-- Google Analytics 4 (Replace with your actual GA4 ID) -->
-    <!-- 
+    <!--
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -79,6 +79,249 @@
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
     -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('cmdkOverlay');
+            const palette = document.getElementById('cmdk');
+            const input = document.getElementById('cmdkInput');
+            const list = document.getElementById('cmdkList');
+
+            let items = [];
+            let flatItems = [];
+            let activeIndex = -1;
+
+            function openPalette() {
+                overlay.setAttribute('aria-hidden', 'false');
+                palette.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (input) {
+                    input.value = '';
+                }
+                render('');
+                setTimeout(() => input && input.focus(), 0);
+            }
+
+            function closePalette() {
+                overlay.setAttribute('aria-hidden', 'true');
+                palette.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                activeIndex = -1;
+            }
+
+            function buildIndex() {
+                items = [];
+
+                const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+                navLinks.forEach(a => {
+                    const label = a.textContent.trim();
+                    const href = a.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        items.push({ title: label, subtitle: 'Section', href, type: 'section' });
+                    }
+                });
+
+                const headers = Array.from(document.querySelectorAll('.section-title'));
+                headers.forEach(h => {
+                    const section = h.closest('section');
+                    if (section && section.id) {
+                        items.push({ title: h.textContent.trim(), subtitle: 'Section', href: '#' + section.id, type: 'section' });
+                    }
+                });
+
+                const projTitles = Array.from(document.querySelectorAll('.featured-showcase h3, .ai-showcase-card .card-title, .featured-grid .card-title, .project-card .card-title'));
+                projTitles.forEach(t => {
+                    const card = t.closest('a') || t.closest('.ai-showcase-card') || t.closest('.project-card');
+                    let href = '#projects';
+                    if (card && card.getAttribute && card.getAttribute('href')) {
+                        href = card.getAttribute('href');
+                    }
+                    items.push({ title: t.textContent.trim(), subtitle: 'Project', href, type: 'project' });
+                });
+
+                const blogTitles = Array.from(document.querySelectorAll('.blog-card .blog-title a, .blog-card .blog-title'));
+                blogTitles.forEach(t => {
+                    const a = t.tagName === 'A' ? t : t.querySelector('a');
+                    const href = a ? a.getAttribute('href') : '#blog';
+                    items.push({ title: t.textContent.trim(), subtitle: 'Blog', href, type: 'blog', external: a && a.getAttribute('target') === '_blank' });
+                });
+
+                flatItems = items;
+            }
+
+            function fuzzyMatch(query, text) {
+                query = query.toLowerCase();
+                text = text.toLowerCase();
+                return text.includes(query);
+            }
+
+            function render(query) {
+                if (!overlay || !palette || !list) return;
+                buildIndex();
+                const q = (query || '').trim().toLowerCase();
+                const filtered = q ? flatItems.filter(it => fuzzyMatch(q, it.title) || fuzzyMatch(q, it.subtitle)) : flatItems;
+
+                list.innerHTML = '';
+                activeIndex = filtered.length ? 0 : -1;
+
+                if (!filtered.length) {
+                    list.innerHTML = '<li class="cmdk-empty">No results</li>';
+                    return;
+                }
+
+                filtered.forEach((it, idx) => {
+                    const li = document.createElement('li');
+                    li.className = 'cmdk-item';
+                    li.setAttribute('role', 'option');
+                    li.setAttribute('aria-selected', idx === activeIndex ? 'true' : 'false');
+
+                    const icon = document.createElement('span');
+                    icon.innerHTML = it.type === 'section' ? '🏷️' : it.type === 'project' ? '🧩' : '📝';
+                    const title = document.createElement('div');
+                    title.className = 'cmdk-item-title';
+                    title.textContent = it.title;
+
+                    const sub = document.createElement('div');
+                    sub.className = 'cmdk-item-sub';
+                    sub.textContent = it.subtitle;
+
+                    li.appendChild(icon);
+                    const textWrap = document.createElement('div');
+                    textWrap.style.display = 'grid';
+                    textWrap.style.gap = '2px';
+                    textWrap.appendChild(title);
+                    textWrap.appendChild(sub);
+                    li.appendChild(textWrap);
+
+                    li.addEventListener('mouseenter', () => setActive(idx));
+                    li.addEventListener('click', () => openItem(it));
+                    list.appendChild(li);
+                });
+                updateActiveVisual();
+            }
+
+            function setActive(idx) {
+                activeIndex = idx;
+                updateActiveVisual();
+            }
+
+            function updateActiveVisual() {
+                Array.from(list.querySelectorAll('.cmdk-item')).forEach((el, i) => {
+                    el.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
+                });
+            }
+
+            function openItem(it) {
+                closePalette();
+                if (it.external && it.href) {
+                    window.open(it.href, '_blank', 'noopener,noreferrer');
+                    return;
+                }
+                if (it.href && it.href.startsWith('#')) {
+                    const target = document.querySelector(it.href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.location.hash = it.href;
+                    }
+                } else if (it.href) {
+                    window.location.href = it.href;
+                }
+            }
+
+            document.addEventListener('keydown', (e) => {
+                const isMac = navigator.platform.toUpperCase().includes('MAC');
+                const modKey = isMac ? e.metaKey : e.ctrlKey;
+
+                // Open with Cmd+K on Mac (avoid Chrome omnibox on Windows/Linux)
+                if (isMac && modKey && e.key.toLowerCase() === 'k') {
+                    e.preventDefault();
+                    const hidden = palette.getAttribute('aria-hidden') !== 'false';
+                    hidden ? openPalette() : closePalette();
+                }
+
+                // Open with Ctrl+/ on Windows/Linux (common alternative)
+                if (!isMac && modKey && (e.key === '/' || e.key === '?')) {
+                    e.preventDefault();
+                    const hidden = palette.getAttribute('aria-hidden') !== 'false';
+                    if (hidden) openPalette();
+                }
+
+                // Also open with '/' when not typing in an input/textarea/contenteditable
+                const active = document.activeElement;
+                const isTyping = active && (
+                    active.tagName === 'INPUT' ||
+                    active.tagName === 'TEXTAREA' ||
+                    active.isContentEditable
+                );
+                if (!modKey && !isTyping && (e.key === '/' || e.key === '?') && palette.getAttribute('aria-hidden') !== 'false') {
+                    // If palette already open, ignore; otherwise open
+                    e.preventDefault();
+                    openPalette();
+                }
+
+                if (palette.getAttribute('aria-hidden') === 'false') {
+                    if (e.key === 'Escape') {
+                        e.preventDefault();
+                        closePalette();
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const count = list.querySelectorAll('.cmdk-item').length;
+                        if (count) setActive((activeIndex + 1) % count);
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const count = list.querySelectorAll('.cmdk-item').length;
+                        if (count) setActive((activeIndex - 1 + count) % count);
+                    } else if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const current = Array.from(list.querySelectorAll('.cmdk-item'))[activeIndex];
+                        if (!current) return;
+                        const title = current.querySelector('.cmdk-item-title') ? current.querySelector('.cmdk-item-title').textContent : '';
+                        const it = flatItems.find(x => x.title === title);
+                        if (it) openItem(it);
+                    }
+                }
+            });
+
+            if (input) {
+                input.addEventListener('input', () => render(input.value));
+            }
+            if (overlay) {
+                overlay.addEventListener('click', closePalette);
+            }
+
+            // Expose globals for manual triggering
+            window.openCommandPalette = openPalette;
+            window.closeCommandPalette = closePalette;
+
+            // Navbar button to open palette
+            const openBtn = document.getElementById('openCmdkBtn');
+            if (openBtn) {
+                openBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPalette();
+                });
+            }
+            // Delegated handler in case button is re-rendered
+            document.addEventListener('click', (e) => {
+                const btn = e.target && e.target.closest ? e.target.closest('#openCmdkBtn') : null;
+                if (btn) {
+                    e.preventDefault();
+                    openPalette();
+                }
+            }, true);
+
+            // Simple fallback: press 's' to open when not typing
+            document.addEventListener('keydown', (e) => {
+                const active = document.activeElement;
+                const isTyping = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+                if (!isTyping && e.key.toLowerCase() === 's' && palette.getAttribute('aria-hidden') !== 'false') {
+                    openPalette();
+                }
+            });
+
+            render('');
+        });
+    </script>
 
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
@@ -240,14 +483,23 @@
 
     <!-- Main Content -->
     <main id="main-content" role="main" itemscope itemtype="https://schema.org/WebPage">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section" itemscope itemtype="https://schema.org/Person">
-            <div class="hero-background-elements">
-                <div class="dot-pattern"></div>
-                <div class="gradient-overlay"></div>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section" itemscope itemtype="https://schema.org/Person">
+        <div class="hero-background-elements">
+            <div class="dot-pattern"></div>
+            <div class="gradient-overlay"></div>
+        </div>
 
-            <div class="hero-container">
+        <!-- Search Shortcut Hint - Desktop Only -->
+        <div class="hero-search-hint">
+            <span class="search-hint-text">Press</span>
+            <kbd class="search-kbd">Ctrl</kbd>
+            <span class="search-hint-text">+</span>
+            <kbd class="search-kbd">/</kbd>
+            <span class="search-hint-text">to search</span>
+        </div>
+
+        <div class="hero-container">
                 <div class="hero-content">
                     <!-- Left Column - Content -->
                     <div class="hero-left">
@@ -1908,6 +2160,26 @@
             </div>
         </div>
     </footer>
+    <!-- Command Palette -->
+    <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true"></div>
+    <div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-labelledby="cmdkTitle" aria-hidden="true">
+        <div class="cmdk-container">
+            <div class="cmdk-header">
+                <h3 id="cmdkTitle">Quick Search</h3>
+                <span class="cmdk-hint">Ctrl/Cmd + K</span>
+            </div>
+            <div class="cmdk-input-wrap">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input id="cmdkInput" type="text" placeholder="Search sections, projects, blog..." autocomplete="off" aria-label="Search" />
+            </div>
+            <ul class="cmdk-list" id="cmdkList" role="listbox" aria-label="Search results"></ul>
+            <div class="cmdk-footer">
+                <span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span>
+                <span><kbd>Enter</kbd> open</span>
+                <span><kbd>Esc</kbd> close</span>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
