@@ -1382,7 +1382,7 @@ body.has-custom-cursor [role="button"] {
     }
     
     .hero-left {
-        padding: 40px 20px;
+        padding: 20px 20px;
         text-align: center;
         align-items: center;
     }
@@ -1404,14 +1404,14 @@ body.has-custom-cursor [role="button"] {
     .hero-right {
         order: -1;
         height: auto;
-        margin-top: 20px;
+        margin-top: 10px;
         padding-right: 0;
         justify-content: center;
     }
     
     .image-container {
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         margin-left: 0;
         margin-right: 0;
     }
@@ -4293,20 +4293,23 @@ section.visible {
   position: fixed;
   bottom: var(--space-xl);
   right: var(--space-xl);
-  width: 60px;
-  height: 60px;
-  background: var(--primary-light);
-  color:white;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: var(--font-size-2xl);
   cursor: pointer;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 
+    0 8px 32px rgba(102, 126, 234, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.1);
   transform: scale(0);
-  transition: transform 0.4s var(--animation-bounce);
+  transition: all 0.4s var(--animation-bounce);
   z-index: 1000;
+  border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .chat-bubble.show {
@@ -4314,8 +4317,11 @@ section.visible {
 }
 
 .chat-bubble:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow-glow);
+  transform: scale(1.15);
+  box-shadow: 
+    0 12px 40px rgba(102, 126, 234, 0.6),
+    0 0 0 4px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 .chat-bubble:focus {
@@ -4329,6 +4335,19 @@ section.visible {
 
 .chat-bubble:hover .bubble-icon {
   transform: rotate(20deg);
+}
+
+.chat-bubble .bubble-icon {
+  animation: chatPulse 2s infinite;
+}
+
+@keyframes chatPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .bubble-notification {
@@ -4374,10 +4393,10 @@ section.visible {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  width: 90%;
-  max-width: 500px;
-  height: 80%;
-  max-height: 700px;
+  width: 95%;
+  max-width: 800px;
+  height: 90%;
+  max-height: 900px;
   display: flex;
   flex-direction: column;
   transform: scale(0.95);
@@ -4471,7 +4490,8 @@ section.visible {
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 80px;
+    padding-top: 40px;
+    min-height: 60vh !important;
   }
   
   .navbar {
@@ -6192,4 +6212,173 @@ body.has-custom-cursor [data-cursor-hover] {
     .mini-tool-card-text p {
         font-size: 0.8rem;
     }
+}
+
+/* ==========================================================================
+   MOBILE BOTTOM NAVIGATION
+   ========================================================================== */
+
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: var(--glass-backdrop);
+  border-top: var(--glass-border);
+  padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+  z-index: 1000;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: var(--glass-shadow);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+  min-width: 50px;
+  flex: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s var(--animation-timing);
+}
+
+.mobile-nav-item:hover::before {
+  left: 100%;
+}
+
+.mobile-nav-item i {
+  font-size: 18px;
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+  filter: brightness(1.3);
+}
+
+.mobile-nav-item span {
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+.mobile-nav-item.active {
+  background-color: var(--color-red) !important;
+  color: var(--color-black) !important;
+  border: 2px solid var(--color-black) !important;
+  box-shadow: 3px 3px 0 var(--color-black) !important;
+  transform: translateY(-2px) !important;
+}
+
+.mobile-nav-item.active i {
+  transform: scale(1.1);
+}
+
+.mobile-nav-item:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  /* Hide desktop navbar on mobile */
+  .navbar {
+    display: none !important;
+  }
+  
+  /* Show mobile bottom nav */
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  
+  /* Add bottom padding to body to account for fixed bottom nav */
+  body {
+    padding-bottom: 70px;
+  }
+  
+  /* Adjust hero section padding and height */
+  .hero-section {
+    padding-top: 20px;
+    min-height: 60vh !important;
+    padding-bottom: 40px;
+  }
+  
+  /* Adjust main content */
+  main {
+    padding-bottom: 20px;
+  }
+}
+
+/* Desktop styles - hide mobile nav */
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+/* Mobile Chat Button Specific Styling */
+.mobile-chat-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.mobile-chat-btn:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.mobile-chat-btn i {
+  filter: brightness(1.3) !important;
+}
+
+/* Hide the floating chat bubble on mobile when bottom nav is visible */
+@media (max-width: 768px) {
+  .chat-bubble {
+    display: none !important;
+  }
+}
+
+/* Desktop Chat Modal - Larger Size */
+@media (min-width: 1024px) {
+  .chat-modal-content {
+    width: 85%;
+    max-width: 1000px;
+    height: 85%;
+    max-height: 1000px;
+  }
+}
+
+/* Large Desktop Chat Modal - Even Larger */
+@media (min-width: 1440px) {
+  .chat-modal-content {
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    max-height: 1100px;
+  }
 }
