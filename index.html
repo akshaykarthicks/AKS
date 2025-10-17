@@ -138,9 +138,9 @@
                     items.push({ title: t.textContent.trim(), subtitle: 'Project', href, type: 'project' });
                 });
 
-                const blogTitles = Array.from(document.querySelectorAll('.blog-card .blog-title a, .blog-card .blog-title'));
+                const blogTitles = Array.from(document.querySelectorAll('.blog-card .blog-title'));
                 blogTitles.forEach(t => {
-                    const a = t.tagName === 'A' ? t : t.querySelector('a');
+                    const a = t.querySelector('a');
                     const href = a ? a.getAttribute('href') : '#blog';
                     items.push({ title: t.textContent.trim(), subtitle: 'Blog', href, type: 'blog', external: a && a.getAttribute('target') === '_blank' });
                 });
@@ -483,23 +483,23 @@
 
     <!-- Main Content -->
     <main id="main-content" role="main" itemscope itemtype="https://schema.org/WebPage">
-    <!-- Hero Section -->
-    <section id="home" class="hero-section" itemscope itemtype="https://schema.org/Person">
-        <div class="hero-background-elements">
-            <div class="dot-pattern"></div>
-            <div class="gradient-overlay"></div>
-        </div>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section" itemscope itemtype="https://schema.org/Person">
+            <div class="hero-background-elements">
+                <div class="dot-pattern"></div>
+                <div class="gradient-overlay"></div>
+            </div>
 
-        <!-- Search Shortcut Hint - Desktop Only -->
-        <div class="hero-search-hint">
-            <span class="search-hint-text">Press</span>
-            <kbd class="search-kbd">Ctrl</kbd>
-            <span class="search-hint-text">+</span>
-            <kbd class="search-kbd">/</kbd>
-            <span class="search-hint-text">to search</span>
-        </div>
+            <!-- Search Shortcut Hint - Desktop Only -->
+            <div class="hero-search-hint">
+                <span class="search-hint-text">Press</span>
+                <kbd class="search-kbd">Ctrl</kbd>
+                <span class="search-hint-text">+</span>
+                <kbd class="search-kbd">/</kbd>
+                <span class="search-hint-text">to search</span>
+            </div>
 
-        <div class="hero-container">
+            <div class="hero-container">
                 <div class="hero-content">
                     <!-- Left Column - Content -->
                     <div class="hero-left">
@@ -1566,15 +1566,16 @@
                             </div>
                             <img src="images/mg.png" alt="Motion Graphics Generator" class="mini-tool-card-image">
                         </a>
-                        <a href="https://opal.withgoogle.com/?flow=drive:/12N26H6-XUreO2ukDO6oZeqSQa1Ahw7QT&shared&mode=app" class="mini-tool-card"
-                            style="text-decoration:none; color:inherit;">
+                        <a href="https://opal.withgoogle.com/?flow=drive:/12N26H6-XUreO2ukDO6oZeqSQa1Ahw7QT&shared&mode=app"
+                            class="mini-tool-card" style="text-decoration:none; color:inherit;">
                             <div class="mini-tool-card-text">
                                 <h3>Blog Weaver</h3>
                                 <p>Designed to craft blog posts from YouTube url </p>
                             </div>
                             <img src="images/blg.png" alt="Blog Weaver" class="mini-tool-card-image">
                         </a>
-                        <a href="https://movie-recommendation-pearl-five.vercel.app/" class="mini-tool-card" style="text-decoration:none; color:inherit;">
+                        <a href="https://movie-recommendation-pearl-five.vercel.app/" class="mini-tool-card"
+                            style="text-decoration:none; color:inherit;">
                             <div class="mini-tool-card-text">
                                 <h3>Movie Curator</h3>
                                 <p>AI curator will craft a personalized movie to your taste.</p>
@@ -1606,8 +1607,8 @@
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                             <span>Email</span>
                         </a>
-                        <a href="https://discordapp.com/users/908367420987691058" target="_blank" rel="noopener noreferrer"
-                            class="social-link" aria-label="Visit my Discord profile">
+                        <a href="https://discordapp.com/users/908367420987691058" target="_blank"
+                            rel="noopener noreferrer" class="social-link" aria-label="Visit my Discord profile">
                             <i class="fab fa-discord" aria-hidden="true"></i>
                             <span>Discord</span>
                         </a>
@@ -2170,7 +2171,8 @@
             </div>
             <div class="cmdk-input-wrap">
                 <i class="fas fa-search" aria-hidden="true"></i>
-                <input id="cmdkInput" type="text" placeholder="Search sections, projects, blog..." autocomplete="off" aria-label="Search" />
+                <input id="cmdkInput" type="text" placeholder="Search sections, projects, blog..." autocomplete="off"
+                    aria-label="Search" />
             </div>
             <ul class="cmdk-list" id="cmdkList" role="listbox" aria-label="Search results"></ul>
             <div class="cmdk-footer">
