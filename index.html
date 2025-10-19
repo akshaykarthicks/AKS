@@ -1493,11 +1493,11 @@
             <div class="container">
                 <header class="section-header">
                     <span class="section-number" aria-hidden="true">04</span>
-                    <h2 class="section-title">Mini Tools with AI</h2>
+                    <h2 class="section-title mini-tools-title"> Mini Tools with Al</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </header>
                 <div class="mini-tools-container">
-                    <div class="mini-tools-grid">
+                    <div class="mini-tools-grid" aria-live="polite">
                         <a href="https://cleanse-ai.vercel.app/" class="mini-tool-card"
                             style="text-decoration:none; color:inherit;">
                             <div class="mini-tool-card-text">
@@ -1602,8 +1602,15 @@
                             </div>
                             <img src="images/mr.png" alt="Movie Curator" class="mini-tool-card-image">
                         </a>
-                        <!-- Duplicates for animation -->
-
+                        <!-- Cards end -->
+                    </div>
+                    <div class="mini-tools-nav" aria-label="Mini tools carousel navigation">
+                        <button class="tools-arrow prev" aria-label="Previous tool" type="button">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="tools-arrow next" aria-label="Next tool" type="button">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2018,111 +2025,99 @@
 
     </script>
     <script>
+        // 3D angled carousel controller for Mini Tools
         document.addEventListener('DOMContentLoaded', () => {
-            const miniToolsContainer = document.querySelector('.mini-tools-container');
-            const miniToolsGrid = document.querySelector('.mini-tools-grid');
+            const container = document.querySelector('.mini-tools-container');
+            const track = document.querySelector('.mini-tools-grid');
+            const cards = Array.from(track?.querySelectorAll('.mini-tool-card') || []);
+            const prevBtn = container?.querySelector('.tools-arrow.prev');
+            const nextBtn = container?.querySelector('.tools-arrow.next');
+            if (!container || !track || cards.length === 0) return;
 
-            if (!miniToolsContainer || !miniToolsGrid) return;
-
-            // Disable CSS animation for JS-driven marquee
-            miniToolsGrid.style.animation = 'none';
-
-            // Marquee settings
-            const pixelsPerSecond = 120; // adjust speed
-            let maxScroll = 0;
-            let isPaused = false;
-            let resumeTimeout;
-
-            const recalc = () => {
-                maxScroll = Math.max(0, miniToolsGrid.scrollWidth - miniToolsContainer.clientWidth);
-            };
-
-            recalc();
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(recalc, 100);
-            });
-
-            // Pause/resume on hover
-            miniToolsContainer.addEventListener('mouseenter', () => {
-                isPaused = true;
-            });
-            miniToolsContainer.addEventListener('mouseleave', () => {
-                if (!resumeTimeout) isPaused = false;
-            });
-
-            // Wheel control (horizontal) with auto-resume
-            miniToolsContainer.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                isPaused = true;
-                const scrollAmount = e.deltaY * 2;
-                miniToolsContainer.scrollLeft = Math.min(maxScroll, Math.max(0, miniToolsContainer.scrollLeft + scrollAmount));
-                clearTimeout(resumeTimeout);
-                resumeTimeout = setTimeout(() => {
-                    isPaused = false;
-                    resumeTimeout = null;
-                }, 1200);
-            }, { passive: false });
-
-            // Touch drag support for mobile
-            let touchStartX = 0;
-            let startScrollLeft = 0;
-
-            const onTouchStart = (e) => {
-                if (!e.touches || e.touches.length === 0) return;
-                isPaused = true;
-                touchStartX = e.touches[0].clientX;
-                startScrollLeft = miniToolsContainer.scrollLeft;
-            };
-
-            const onTouchMove = (e) => {
-                if (!e.touches || e.touches.length === 0) return;
-                const currentX = e.touches[0].clientX;
-                const deltaX = touchStartX - currentX; // drag left moves content right
-                miniToolsContainer.scrollLeft = Math.min(maxScroll, Math.max(0, startScrollLeft + deltaX));
-                // prevent vertical scroll hijack only if horizontal move is significant
-                if (Math.abs(deltaX) > 4) {
-                    e.preventDefault();
+            // inject Try Now buttons and alt structure if missing
+            cards.forEach(card => {
+                const text = card.querySelector('.mini-tool-card-text');
+                if (text && !text.querySelector('.mini-tool-cta')) {
+                    const btn = document.createElement('span');
+                    btn.className = 'mini-tool-cta';
+                    btn.innerHTML = 'Try Now <i class="fas fa-arrow-right"></i>';
+                    text.appendChild(btn);
                 }
-            };
-
-            const onTouchEnd = () => {
-                clearTimeout(resumeTimeout);
-                resumeTimeout = setTimeout(() => {
-                    isPaused = false;
-                    resumeTimeout = null;
-                }, 1200);
-            };
-
-            miniToolsContainer.addEventListener('touchstart', onTouchStart, { passive: true });
-            miniToolsContainer.addEventListener('touchmove', onTouchMove, { passive: false });
-            miniToolsContainer.addEventListener('touchend', onTouchEnd, { passive: true });
-
-            // Reduce work when tab is hidden (mobile power saving)
-            document.addEventListener('visibilitychange', () => {
-                isPaused = document.hidden || isPaused;
             });
 
-            // RAF ticker for continuous scroll and looping without duplicates
-            let lastTs = 0;
-            const tick = (ts) => {
-                if (!lastTs) lastTs = ts;
-                const dt = (ts - lastTs) / 1000;
-                lastTs = ts;
+            let index = Math.floor(cards.length / 2);
+            let sliding = false;
+            track.dataset.tx = '0';
 
-                if (!isPaused && maxScroll > 0) {
-                    const delta = pixelsPerSecond * dt;
-                    let next = miniToolsContainer.scrollLeft + delta;
-                    if (next >= maxScroll) {
-                        // Loop back to start; edge mask should hide the jump
-                        next = 0;
+            function applyStates() {
+                cards.forEach((c, i) => {
+                    c.classList.remove('active', 'side-left', 'side-right');
+                    if (i === index) {
+                        c.classList.add('active');
+                        c.setAttribute('aria-current', 'true');
+                    } else if (i < index) {
+                        c.classList.add('side-left');
+                        c.removeAttribute('aria-current');
+                    } else {
+                        c.classList.add('side-right');
+                        c.removeAttribute('aria-current');
                     }
-                    miniToolsContainer.scrollLeft = next;
-                }
-                requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
+                });
+            }
+
+            function centerOnIndex() {
+                const card = cards[index];
+                if (!card) return;
+                const containerRect = container.getBoundingClientRect();
+                const cardRect = card.getBoundingClientRect();
+                const containerCenter = containerRect.left + containerRect.width / 2;
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const currentTx = parseFloat(track.dataset.tx || '0');
+                const delta = containerCenter - cardCenter; // how much to move track so card center aligns
+                const nextTx = currentTx + delta;
+                track.style.transform = `translateX(${nextTx}px)`;
+                track.dataset.tx = String(nextTx);
+            }
+
+            function goTo(newIndex) {
+                if (sliding) return;
+                index = (newIndex + cards.length) % cards.length;
+                sliding = true;
+                track.classList.add('is-sliding');
+                applyStates();
+                centerOnIndex();
+                setTimeout(() => {
+                    track.classList.remove('is-sliding');
+                    sliding = false;
+                }, 500);
+            }
+
+            applyStates();
+            // ensure the middle card centers on load
+            requestAnimationFrame(centerOnIndex);
+
+            prevBtn?.addEventListener('click', () => goTo(index - 1));
+            nextBtn?.addEventListener('click', () => goTo(index + 1));
+
+            // Keyboard support
+            container.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') goTo(index - 1);
+                if (e.key === 'ArrowRight') goTo(index + 1);
+            });
+            container.tabIndex = 0;
+
+            // Swipe support
+            let startX = 0; let dx = 0; let dragging = false; let blockedClick = false;
+            track.addEventListener('pointerdown', (e) => { dragging = true; startX = e.clientX; dx = 0; blockedClick = false; track.setPointerCapture(e.pointerId); });
+            track.addEventListener('pointermove', (e) => { if (!dragging) return; dx = e.clientX - startX; if (Math.abs(dx) > 6) blockedClick = true; });
+            track.addEventListener('pointerup', () => {
+                if (!dragging) return; dragging = false;
+                if (dx > 40) goTo(index - 1); else if (dx < -40) goTo(index + 1);
+            });
+            track.addEventListener('click', (e) => { if (blockedClick) { e.preventDefault(); e.stopPropagation(); } });
+
+            // Resize re-apply states and re-center
+            window.addEventListener('resize', () => { applyStates(); centerOnIndex(); });
         });
     </script>
 
