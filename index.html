@@ -2034,14 +2034,23 @@
             const nextBtn = container?.querySelector('.tools-arrow.next');
             if (!container || !track || cards.length === 0) return;
 
-            // inject Try Now buttons and alt structure if missing
+            // inject Try Now buttons and disable the whole-card link to avoid accidental navigation
             cards.forEach(card => {
+                const href = card.getAttribute('href');
                 const text = card.querySelector('.mini-tool-card-text');
-                if (text && !text.querySelector('.mini-tool-cta')) {
-                    const btn = document.createElement('span');
-                    btn.className = 'mini-tool-cta';
-                    btn.innerHTML = 'Try Now <i class="fas fa-arrow-right"></i>';
-                    text.appendChild(btn);
+                if (href && text) {
+                    if (!text.querySelector('.mini-tool-cta')) {
+                        const btn = document.createElement('a');
+                        btn.className = 'mini-tool-cta';
+                        btn.href = href;
+                        btn.target = '_blank';
+                        btn.rel = 'noopener noreferrer';
+                        btn.innerHTML = 'Try Now <i class="fas fa-arrow-right"></i>';
+                        text.appendChild(btn);
+                    }
+                    // remove href from the card wrapper so clicking the card doesn't navigate
+                    card.removeAttribute('href');
+                    card.style.cursor = 'grab';
                 }
             });
 
@@ -2096,8 +2105,8 @@
             // ensure the middle card centers on load
             requestAnimationFrame(centerOnIndex);
 
-            prevBtn?.addEventListener('click', () => goTo(index - 1));
-            nextBtn?.addEventListener('click', () => goTo(index + 1));
+            prevBtn?.addEventListener('click', (e) => { e.preventDefault(); goTo(index - 1); });
+            nextBtn?.addEventListener('click', (e) => { e.preventDefault(); goTo(index + 1); });
 
             // Keyboard support
             container.addEventListener('keydown', (e) => {
@@ -2114,7 +2123,11 @@
                 if (!dragging) return; dragging = false;
                 if (dx > 40) goTo(index - 1); else if (dx < -40) goTo(index + 1);
             });
-            track.addEventListener('click', (e) => { if (blockedClick) { e.preventDefault(); e.stopPropagation(); } });
+            track.addEventListener('click', (e) => {
+                // allow clicks on CTA even when a small drag occurred; block others when dragging
+                const onCta = e.target.closest && e.target.closest('.mini-tool-cta');
+                if (blockedClick && !onCta) { e.preventDefault(); e.stopPropagation(); }
+            });
 
             // Resize re-apply states and re-center
             window.addEventListener('resize', () => { applyStates(); centerOnIndex(); });

@@ -566,18 +566,21 @@ main {
   border-color: var(--color-red) !important;
   box-shadow: 0 18px 40px rgba(244,67,54,0.15), 0 0 0 2px rgba(244,67,54,0.35) !important;
   filter: none;
+  cursor: default;
 }
 
 .mini-tools .mini-tool-card.side-left {
   transform: rotateY(20deg) rotateZ(1deg) translateX(-4%) scale(0.94);
   opacity: 0.75;
   filter: blur(0.25px) saturate(0.95);
+  z-index: 1;
 }
 
 .mini-tools .mini-tool-card.side-right {
   transform: rotateY(-20deg) rotateZ(-1deg) translateX(4%) scale(0.94);
   opacity: 0.75;
   filter: blur(0.25px) saturate(0.95);
+  z-index: 1;
 }
 
 .mini-tools .mini-tool-card .mini-tool-card-text {
@@ -635,6 +638,7 @@ main {
   color: var(--color-black);
   display: inline-flex; align-items: center; justify-content: center;
   transition: box-shadow 250ms ease, transform 250ms ease;
+  cursor: pointer;
 }
 
 .mini-tools .tools-arrow:hover {
